@@ -22,23 +22,26 @@ mongoose.connect(dbURL, (err) => {
   }
 });
 
+
 let redisURL = {
-  hostname: 'redis-10440.c10.us-east-1-3.ec2.cloud.redislabs.com',
-  port: 10440,
+  hostname: 'redis-15715.c114.us-east-1-4.ec2.cloud.redislabs.com',
+  port: 15715,
 };
 
-let redisPASS = 'qnXtVXTMeFq42kkHKP4UHN5UNLO8BoQ6';
+let redisPASS = '6iWnkAN2ywtQgdWcksAU8WOu2WjpJUgX';
 
 if (process.env.REDISCLOUD_URL) {
   redisURL = url.parse(process.env.REDISCLOUD_URL);
   redisPASS = redisURL.auth.split(':')[1];
 }
 
+
 const router = require('./router.js');
 
 const app = express();
 app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
 app.use(favicon(`${__dirname}/../hosted/img/favicon.png`));
+
 app.disable('x-powered-by');
 app.use(compression());
 app.use(bodyParser.urlencoded({

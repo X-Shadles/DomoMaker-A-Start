@@ -35,7 +35,7 @@ const makeDomo = (req, res) => {
       return res.status(400).json({ error: 'domo already exists' });
     }
 
-    return res.status(400).json({ error: 'an error occured lol' });
+    return res.status(400).json({ error: 'an error occured' });
   });
 
   return domoPromise;
