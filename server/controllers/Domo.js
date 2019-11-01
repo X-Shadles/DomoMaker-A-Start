@@ -1,49 +1,46 @@
-const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-const _ = require('underscore');
+const models = require('../models');
+const Domo = models.Domo;
 
-let DomoModel = {};
-const convertId = mongoose.Types.ObjectId;
-const setName = (name) => _.escape(name).trim();
-const DomoSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-    set: setName,
-  },
+const makerPage = (req, res) => {
+  Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'an error occured' });
+    }
 
-  age: {
-    type: Number,
-    required: true,
-    min: 0,
-  },
-
-  owner: {
-    type: mongoose.Schema.ObjectId,
-    required: true,
-    ref: 'Account',
-  },
-
-  createData: {
-    type: Date,
-    default: Date.now,
-  },
-});
-
-DomoSchema.statics.toAPI = (doc) => ({
-  name: doc.name,
-  age: doc.age,
-});
-
-DomoSchema.static.findByOwner = (ownerId, callback) => {
-  const search = {
-    owner: convertId(ownerId),
-  };
-  return DomoModel.find(search).select('name age').exec(callback);
+    return res.render('app', { csrfToken: req.csrfToken(), domos: docs });
+  });
 };
 
-DomoModel = mongoose.model('Domo', DomoSchema);
+const makeDomo = (req, res) => {
+  if (!req.body.name || !req.body.age) {
+    return res.status(400).json({ error: 'name and age are required' });
+  }
 
-module.exports.DomoModel = DomoModel;
-module.exports.DomoSchema = DomoSchema;
+  const domoData = {
+    name: req.body.name,
+    age: req.body.age,
+    owner: req.session.account._id,
+  };
+
+  const newDomo = new Domo.DomoModel(domoData);
+
+  const domoPromise = newDomo.save();
+
+  domoPromise.then(() => res.json({ redirect: '/maker' }));
+
+  domoPromise.catch((err) => {
+    console.log(err);
+    if (err.code === 11000) {
+      return res.status(400).json({ error: 'domo already exists' });
+    }
+
+    return res.status(400).json({ error: 'an error occured lol' });
+  });
+
+  return domoPromise;
+};
+
+
+module.exports.makerPage = makerPage;
+module.exports.make = makeDomo;
