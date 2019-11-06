@@ -27,7 +27,7 @@ let redisURL = {
   port: 15715,
 };
 
-let redisPASS = '6iWnkAN2ywtQgdWcksAU8WOu2WjpJUgX';
+let redisPASS = 'ywfFvXwk4U6A5iejsJs4b2lXDnAJnRVl';
 
 if (process.env.REDISCLOUD_URL) {
   redisURL = url.parse(process.env.REDISCLOUD_URL);

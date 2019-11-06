@@ -4,7 +4,7 @@ const handleLogin = (e) => {
     $('#domoMessage').animate({ width: 'hide' }, 350);
 
     if ($('#user').val() == '' || $('#pass').val() == '') {
-        handleError("missing username or password");
+        handleError("RAWR! missing username or password");
         return false;
     }
 
@@ -21,12 +21,12 @@ const handleSignup = (e) => {
     $('#domoMessage').animate({ width: 'hide' }, 350);
 
     if ($('#user').val() == '' || $('#pass').val() == '' || $('#pass2').val() == '') {
-        handleError("all fields required DUM");
+        handleError("RAWR! all fields required");
         return false;
     }
 
     if ($('#pass').val() !== $('#pass2').val()) {
-        handleError("passwords arn't the same");
+        handleError("RAWR! passwords arn't the same");
         return false;
     }
 

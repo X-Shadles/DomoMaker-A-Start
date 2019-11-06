@@ -81,13 +81,13 @@ const getToken = (request, response) => {
 
   const csrfJSON = {
     csrfToken: req.csrfToken(),
-   };
+  };
 
   res.json(csrfJSON);
-};
+}
 
 module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.logout = logout;
 module.exports.signup = signup;
-module.exports.signup = getToken;
+module.exports.getToken = getToken;
