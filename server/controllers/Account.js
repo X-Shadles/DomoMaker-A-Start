@@ -6,10 +6,6 @@ const loginPage = (req, res) => {
   res.render('login', { csrfToken: req.csrfToken() });
 };
 
-const signupPage = (req, res) => {
-  res.render('signup', { csrfToken: req.csrfToken() });
-};
-
 const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
@@ -35,7 +31,6 @@ const login = (request, response) => {
     return res.json({ redirect: '/maker' });
   });
 };
-
 const signup = (request, response) => {
   const req = request;
   const res = response;
@@ -45,11 +40,11 @@ const signup = (request, response) => {
   req.body.pass2 = `${req.body.pass2}`;
 
   if (!req.body.username || !req.body.pass || !req.body.pass2) {
-    return res.status(400).json({ error: 'all fields are required' });
+    return res.status(400).json({ error: 'all fields required ya dweeb' });
   }
 
   if (req.body.pass !== req.body.pass2) {
-    return res.status(400).json({ error: 'Wrong Password' });
+    return res.status(400).json({ error: 'passwords dont match!!! >:(' });
   }
 
   return Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
@@ -72,18 +67,27 @@ const signup = (request, response) => {
       console.log(err);
 
       if (err.code === 11000) {
-        
-        return res.status(400).json({ error: 'Username Already Entered.' });
+        return res.status(400).json({ error: 'username already in use dummyyy.' });
       }
-      
-      return res.status(400).json({ error: 'Error occured' });
 
+      return res.status(400).json({ error: 'an error occurred oopsie' });
     });
   });
+};
+
+const getToken = (request, response) => {
+  const req = request;
+  const res = response;
+
+  const csrfJSON = {
+    csrfToken: req.csrfToken(),
+   };
+
+  res.json(csrfJSON);
 };
 
 module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.logout = logout;
-module.exports.signupPage = signupPage;
 module.exports.signup = signup;
+module.exports.signup = getToken;
