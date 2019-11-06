@@ -35,12 +35,11 @@ const makeDomo = (req, res) => {
       return res.status(400).json({ error: 'domo already exists' });
     }
 
-    return res.status(400).json({ error: 'an error occured' });
+    return res.status(400).json({ error: 'an error occured lol' });
   });
 
   return domoPromise;
 };
-
 
 const getDomos = (request, response) => {
   const req = request;
@@ -59,4 +58,4 @@ const getDomos = (request, response) => {
 
 module.exports.makerPage = makerPage;
 module.exports.make = makeDomo;
-module.exports.make = getDomos;
+module.exports.getDomos = getDomos;

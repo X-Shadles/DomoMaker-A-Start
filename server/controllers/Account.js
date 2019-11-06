@@ -40,11 +40,11 @@ const signup = (request, response) => {
   req.body.pass2 = `${req.body.pass2}`;
 
   if (!req.body.username || !req.body.pass || !req.body.pass2) {
-    return res.status(400).json({ error: 'all fields required ya dweeb' });
+    return res.status(400).json({ error: 'all fields required' });
   }
 
   if (req.body.pass !== req.body.pass2) {
-    return res.status(400).json({ error: 'passwords dont match!!! >:(' });
+    return res.status(400).json({ error: 'not the same password' });
   }
 
   return Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
@@ -67,10 +67,10 @@ const signup = (request, response) => {
       console.log(err);
 
       if (err.code === 11000) {
-        return res.status(400).json({ error: 'username already in use dummyyy.' });
+        return res.status(400).json({ error: 'already in use.' });
       }
 
-      return res.status(400).json({ error: 'an error occurred oopsie' });
+      return res.status(400).json({ error: 'an error occurred' });
     });
   });
 };

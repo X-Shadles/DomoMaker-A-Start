@@ -4,7 +4,7 @@ const handleLogin = (e) => {
     $('#domoMessage').animate({ width: 'hide' }, 350);
 
     if ($('#user').val() == '' || $('#pass').val() == '') {
-        handleError("username or password is empty >:(");
+        handleError("missing username or password");
         return false;
     }
 
@@ -26,7 +26,7 @@ const handleSignup = (e) => {
     }
 
     if ($('#pass').val() !== $('#pass2').val()) {
-        handleError("passwords dont MATCH!!!!!!!!!!!!");
+        handleError("passwords arn't the same");
         return false;
     }
 
