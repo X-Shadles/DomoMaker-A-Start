@@ -23,7 +23,6 @@ const DomoSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    set: setName,
   },
   owner: {
     type: mongoose.Schema.ObjectId,
@@ -46,7 +45,7 @@ DomoSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
-  return DomoModel.find(search).select('name age').exec(callback);
+  return DomoModel.find(search).select('name age food').exec(callback);
 };
 
 DomoModel = mongoose.model('Domo', DomoSchema);
