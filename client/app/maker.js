@@ -52,6 +52,7 @@ const DomoList = function (props) {
                 <h3 className="domoName">Name: {domo.name}</h3>
                 <h3 className="domoAge">Age: {domo.age}</h3>
                 <h3 className="domoFood">Favorite Food: {domo.food}</h3>
+                <input className="domoDelete" type="submit" value="Delete Domo" />
             </div>
         );
     });
