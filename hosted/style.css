@@ -50,7 +50,7 @@ nav:nth-child(1) {
 .domoForm {
     border: 2px solid #338acc;
     height: 35px;
-    width: 700px;
+    width: 900px;
     margin-top:0px;
     padding-top:10px;
     background-color: #55acee;
@@ -74,6 +74,7 @@ nav:nth-child(1) {
 .makeDomoSubmit {
     transition: background-color 0.4s ease;
     display: inline;
+    margin-left: 10px;
     width: 90px;
     background-color: #55acee;
     border-radius: 2px;
@@ -246,6 +247,14 @@ h3.domoName {
 
 h3.domoAge {
     float:right;
+    text-align: left;
+    width: 100px;
+    font-weight: bold;
+    padding-right: 40px;
+    font-size: 1.5em;
+}
+h3.domoFood {
+    float:center;
     text-align: left;
     width: 100px;
     font-weight: bold;
