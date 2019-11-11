@@ -10,7 +10,7 @@ const redirect = (response) => {
 
 const sendAjax = (type, action, data, success) => {
     $.ajax({
-        cache: false,
+        cache: false, 
         type: type,
         url: action,
         data: data,
