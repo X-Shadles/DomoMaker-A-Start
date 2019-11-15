@@ -15,13 +15,8 @@ html, body {
 }
 
 nav {
-    width: 100%;
-    height: 50px;
-    background-color: #55acee;
-}
-
-nav:nth-child(1) {
-    padding-left: 25px;
+    width: 27%;
+    height: 60px;
 }
 
 .navlink {
@@ -72,7 +67,7 @@ nav:nth-child(1) {
 #header-bar {
     z-index: 1;
     box-shadow: 0px 17px 8px rgba(0, 0, 0, .15);
-    height: 12vh;
+    height: 6vh;
     width: 100vw;
 
     
@@ -83,10 +78,11 @@ nav:nth-child(1) {
     justify-content: space-between;
 }
 
-#header-bar h1 {
+#header-bar h2 {
     font-family: 'Bree Serif', serif;
-    font-size: 45px;
+    font-size: 40px;
     padding: .15em;
+    padding-top: 0px;
 }
 
 /* Set Icons in a good place */
@@ -120,10 +116,9 @@ nav:nth-child(1) {
 /* Doesn't move my menu icon, looks as if it comes from the header itself */
 .Pages {
     position: absolute;
-    margin-top: 19px;
     padding-top: 8px;
     display: none;
-    width: 255px;
+    width: 350px;
     box-shadow: -17px 8px 8px rgba(0, 0, 0, .15);
 
 }
