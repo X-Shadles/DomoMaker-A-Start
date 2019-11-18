@@ -20,6 +20,7 @@ const makeDomo = (req, res) => {
   const domoData = {
     tweet: req.body.tweet,
     owner: req.session.account._id,
+    username: req.session.account.username,
   };
 
   const newDomo = new Domo.DomoModel(domoData);
