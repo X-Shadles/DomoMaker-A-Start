@@ -47,12 +47,13 @@ nav {
 #left-grids{ grid-area: leftmost; }
 .content{ grid-area: main; }
 #header-bar { grid-area: header;}
+#right-grids{grid-area: rightmost;}
 
 #grid-container {
     grid-template-areas:
     'header header header header header'
-    'leftmost main main main main'
-    'leftmost main main main main';
+    'leftmost main main main rightmost'
+    'leftmost main main main rightmost';
   
       height: 100vh;
       width: 100vw;
@@ -140,13 +141,24 @@ nav {
 
 #left-grids{
     margin-top: 6%;
-    grid-area: leftmost;
     width: 160px;
     background-color: cyan;
     height: 70%;
     justify-content: start;
     z-index: -1;
     position: absolute;
+}
+
+#right-grids{
+    grid-area: rightmost;
+    margin-top: 6%;
+    width: 160px;
+    background-color: cyan;
+    height: 70%;
+    justify-content: end;
+    z-index: -1;
+    position: absolute;
+
 }
 
 .domoForm {
