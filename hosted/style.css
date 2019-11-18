@@ -156,7 +156,7 @@ nav {
     height: 70%;
     justify-content: end;
     z-index: -1;
-    position: absolute;
+    float: right;
 
 }
 #right-grids h2, #left-grids h2{
