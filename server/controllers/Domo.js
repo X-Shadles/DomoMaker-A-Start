@@ -51,7 +51,7 @@ const getDomos = (request, response) => {
       return res.status(400).json({ error: 'an error occurred' });
     }
 
-    return res.json({ domos: docs, username: req.session.account.username });
+    return res.json({ domos: docs});
   });
 };
 

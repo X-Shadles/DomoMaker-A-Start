@@ -31,6 +31,7 @@ const DomoSchema = new mongoose.Schema({
 
 DomoSchema.statics.toAPI = (doc) => ({
   tweet: doc.tweet,
+  username: doc.username,
 });
 
 DomoSchema.statics.findByOwner = (ownerId, callback) => {
