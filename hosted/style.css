@@ -146,11 +146,10 @@ nav {
     height: 70%;
     justify-content: start;
     z-index: -1;
-    position: absolute;
+    position: fixed;
 }
 
 #right-grids{
-    grid-area: rightmost;
     margin-top: 6%;
     width: 160px;
     background-color: cyan;
@@ -159,6 +158,9 @@ nav {
     z-index: -1;
     position: absolute;
 
+}
+#right-grids h2, #left-grids h2{
+    text-align: center;
 }
 
 .domoForm {
