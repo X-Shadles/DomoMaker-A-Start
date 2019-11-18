@@ -13,14 +13,12 @@ const makerPage = (req, res) => {
 };
 
 const makeDomo = (req, res) => {
-  if (!req.body.name || !req.body.age || !req.body.food) {
-    return res.status(400).json({ error: 'all fields are required' });
+  if (!req.body.message) {
+    return res.status(400).json({ error: 'You must enter some text' });
   }
 
   const domoData = {
-    name: req.body.name,
-    age: req.body.age,
-    food: req.body.food, 
+    message: req.body.message,
     owner: req.session.account._id,
   };
 
