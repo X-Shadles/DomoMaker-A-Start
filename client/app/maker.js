@@ -24,7 +24,7 @@ const DomoForm = (props) => {
             method="POST"
             className="domoForm">
             <label htmlFor="tweet"></label>
-            <input id="domoTweet" type="text" name="tweet" placholder="Domo Message" />
+            <textarea rows="4" cols="50" type="text" id="domoTweet" name="tweet"></textarea>
 
             <input type="hidden" name="_csrf" value={props.csrf} />
             <input className="makeDomoSubmit" type="submit" value="Tweet" />
