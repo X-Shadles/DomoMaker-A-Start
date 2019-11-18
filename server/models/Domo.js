@@ -7,7 +7,6 @@ let DomoModel = {};
 const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
 console.log(convertId);
-console.log(ObjectId);
 
 const DomoSchema = new mongoose.Schema({
   tweet: {
