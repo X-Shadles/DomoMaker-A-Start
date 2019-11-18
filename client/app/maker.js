@@ -59,7 +59,7 @@ const DomoList = function (props) {
 const loadDomosFromServer = () => {
     sendAjax('GET', '/getDomos', null, (data) => {
         ReactDOM.render(
-            <DomoList domos={data.domos} username={data.username} />, document.querySelector('#domos')
+            <DomoList domos={data.domos}/>, document.querySelector('#domos')
         );
     });
 };
