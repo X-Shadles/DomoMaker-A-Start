@@ -31,7 +31,7 @@ const makeDomo = (req, res) => {
   domoPromise.catch((err) => {
     console.log(err);
     if (err.code === 11000) {
-      return res.status(400).json({ error: 'Domo already exists' });
+      return res.status(400).json({ error: 'Tweet already exists' });
     }
 
     return res.status(400).json({ error: 'RAWR! Dont do that!' });

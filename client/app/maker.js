@@ -43,8 +43,8 @@ const DomoList = function (props) {
 
     const domoNodes = props.domos.map(function (domo) {
         return (
-            <div key={domo._id} className="domo">
-                <h3 className="domoTweet">{domo.owner}: {domo.tweet}</h3>
+            <div className="domo">
+                <h3 className="domoTweet">Tweets: {domo.tweet}</h3>
             </div>
         );
     });
