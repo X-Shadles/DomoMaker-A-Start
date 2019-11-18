@@ -23,6 +23,10 @@ const DomoSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  username: {
+    type: String,
+    required: true,
+  },
 });
 
 DomoSchema.statics.toAPI = (doc) => ({
@@ -33,10 +37,12 @@ DomoSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
-  return DomoModel.find(search).select('tweet').exec(callback);
+  return DomoModel.find(search).select('tweet username').exec(callback);
 };
 
 DomoModel = mongoose.model('Domo', DomoSchema);
 
 module.exports.DomoModel = DomoModel;
 module.exports.DomoSchema = DomoSchema;
+
+// domoModel.find({})
