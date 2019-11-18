@@ -23,23 +23,23 @@ nav {
     padding: 5px;
     padding-top: 12px;
     padding-left: 20px;
-    color: #011638;
+    color: white;
     font-size: 1.3em;
     float: left;
 }
 
 .navlink a, .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active {
-    color: #011638;
+    color: white;
     text-decoration: none;
     padding: 5px;
     border-radius: 4px;
-    background-color: #9055A2;
+    background-color: #A8CCC9;
     transition: background-color 0.4s ease;
 }
 
 .navlink a:hover {
     transition: background-color 0.8s ease;
-    background-color: #2E294E;
+    background-color: #66bdff;
 }
 
 
@@ -67,7 +67,7 @@ nav {
 
 #header-bar {
     z-index: 1;
-    background-color: #9055A2;
+    background-color: #A8CCC9;
     box-shadow: 0px 17px 8px rgba(0, 0, 0, .15);
     height: 70px;
     width: 100vw;
@@ -81,7 +81,7 @@ nav {
 }
 
 #header-bar h2 {
-    color: #011638;
+    color: white;
     margin: 10px;
     font-family: 'Bree Serif', serif;
     font-size: 40px;
@@ -105,9 +105,9 @@ nav {
     width: 48px;
     height: 48px;
     border-radius: 25px;
-    background-color: #E8C1C5;
-    color:#9055A2;
-    border-color: #E8C1C5;
+    background-color: aliceblue;
+    color:#A8CCC9;
+    border-color: #B3D6C6;
 }
 
 /* Gives the button a little ring */
@@ -142,7 +142,7 @@ nav {
 #left-grids{
     margin-top: 6%;
     width: 160px;
-    background-color: #D499B9;
+    background-color: #C7D66D;
     height: 70%;
     justify-content: start;
     z-index: -1;
@@ -152,7 +152,7 @@ nav {
 #right-grids{
     margin-top: 6%;
     width: 160px;
-    background-color: #D499B9;
+    background-color: #C7D66D;
     height: 70%;
     justify-content: end;
     z-index: -1;
@@ -168,11 +168,11 @@ nav {
     height: 60%;
 }
 .domoForm {   
-    border: 2px solid #2E294E;
+    border: 2px solid #60989C;
     height: 115px;
     width: 39vw;
     padding-top: 10px;
-    background-color: #9055A2;
+    background-color: #A8CCC9;
     margin-left: 30vw;
     padding-left: 10px;
     margin-top: 70px;
@@ -186,7 +186,7 @@ nav {
     margin-left: 10px;
     font-size: 1.2em;
     float: left;
-    color: #011638;
+    color: white;
 }
 
 .domoForm input[type=text] {
@@ -200,19 +200,19 @@ nav {
     margin-top: 10px;
     width: 90px;
     float: right;
-    background-color: #9055A2;
+    background-color: #A8CCC9;
     border-radius: 2px;
-    color: #011638;
+    color: white;
     text-decoration: none;
 }
 
 .makeDomoSubmit:link, .makeDomoSubmit:visited, .makeDomoSubmit:hover, .makeDomoSubmit:active {
-    color: #011638;
+    color: white;
 }
 
 .makeDomoSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #2E294E;
+    background-color: #60989C;
 }
 
 .mainForm {
@@ -243,21 +243,21 @@ nav {
     margin-top: 14px;
     font-size: 1.2em;
     width: 100px;
-    background-color: #9055A2;
+    background-color: #A8CCC9;
     border-radius: 2px;
-    border-color: #2E294E;
+    border-color: #B3D6C6;
     padding: 3px 0px;
-    color: #011638;
+    color: white;
     text-decoration: none;
 }
 
 .formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
-    color: #011638;
+    color: white;
 }
 
 .formSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #2E294E;
+    background-color: #60989C;
 }
 
 #user, #pass, #pass2 {
@@ -269,7 +269,7 @@ nav {
 
 #user:focus, #pass:focus, #pass2:focus {
     outline: none;
-    box-shadow: 0px 0px 1px 1px #9055A2;
+    box-shadow: 0px 0px 1px 1px #A8CCC9;
 }
 
 #domoMessage {
@@ -317,7 +317,7 @@ nav {
 #domos {
     width: 40%;
     min-width: 400px;
-    border: 2px solid #9055A2;
+    border: 2px solid #A8CCC9;
     border-radius: 4px;
     margin: 0 auto;
     margin-top: 100px;
@@ -328,9 +328,9 @@ nav {
     margin: 0 auto;
     margin-top: 2px;
     margin-bottom: 2px;
-    border: 2px solid #2E294E;
+    border: 2px solid #DCEAB2;
     border-radius: 4px;
-    background-color: #2E294E;
+    background-color: #DCEAB2;
     padding: 10px;
     min-height:60px;
     overflow: hidden;
@@ -340,7 +340,7 @@ nav {
     transition: border-color 0.2s ease-out;
     border-color: rgba(255,255,255, 0.8);
     transition: background-color 2.6s ease-out;
-    background-color: #2E294E;
+    background-color: #75B9BE;
 }
 
 img.domoFace {
