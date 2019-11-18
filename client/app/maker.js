@@ -3,8 +3,8 @@ const handleDomo = (e) => {
 
     $('#domoMessage').animate({ width: 'hide' }, 350);
 
-    if ($('#domoName').val() == '' || $('#domoAge').val() == '' || $('#domoFood').val() == '') {
-        handleError('all fields required');
+    if ($('#domoTweet').val() == '') {
+        handleError('come on theres only one requirement');
         return false;
     }
 
@@ -23,12 +23,8 @@ const DomoForm = (props) => {
             action="/maker"
             method="POST"
             className="domoForm">
-            <label htmlFor="name">Name: </label>
-            <input id="domoName" type="text" name="name" placholder="Domo Name" />
-            <label htmlFor="age">Age: </label>
-            <input id="domoAge" type="text" name="age" placeholder="Domo Age" />
-            <label htmlFor="food">Fav-Food: </label>
-            <input id="domoFood" type="text" name="food" placeholder="Domo Food" />
+            <label htmlFor="tweet">Tweet: </label>
+            <input id="domoTweet" type="text" name="tweet" placholder="Domo Message" />
 
             <input type="hidden" name="_csrf" value={props.csrf} />
             <input className="makeDomoSubmit" type="submit" value="Make Domo" />
@@ -49,9 +45,7 @@ const DomoList = function (props) {
         return (
             <div key={domo._id} className="domo">
                 <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
-                <h3 className="domoName">Name: {domo.name}</h3>
-                <h3 className="domoAge">Age: {domo.age}</h3>
-                <h3 className="domoFood">Favorite Food: {domo.food}</h3>
+                <h3 className="domoTweet">Tweet: {domo.tweet}</h3>
                 <input className="domoDelete" type="submit" value="Delete Domo" />
             </div>
         );

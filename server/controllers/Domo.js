@@ -13,12 +13,12 @@ const makerPage = (req, res) => {
 };
 
 const makeDomo = (req, res) => {
-  if (!req.body.message) {
+  if (!req.body.tweet) {
     return res.status(400).json({ error: 'You must enter some text' });
   }
 
   const domoData = {
-    message: req.body.message,
+    tweet: req.body.tweet,
     owner: req.session.account._id,
   };
 

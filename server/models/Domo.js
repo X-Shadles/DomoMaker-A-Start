@@ -8,7 +8,7 @@ const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
 
 const DomoSchema = new mongoose.Schema({
-  message: {
+  tweet: {
     type: String,
     required: true,
     trim: true,
@@ -26,14 +26,14 @@ const DomoSchema = new mongoose.Schema({
 });
 
 DomoSchema.statics.toAPI = (doc) => ({
-  message: doc.message,
+  tweet: doc.tweet,
 });
 
 DomoSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
-  return DomoModel.find(search).select('message').exec(callback);
+  return DomoModel.find(search).select('tweet').exec(callback);
 };
 
 DomoModel = mongoose.model('Domo', DomoSchema);
