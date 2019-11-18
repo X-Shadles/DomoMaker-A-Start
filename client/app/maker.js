@@ -23,11 +23,11 @@ const DomoForm = (props) => {
             action="/maker"
             method="POST"
             className="domoForm">
-            <label htmlFor="tweet">Tweet: </label>
+            <label htmlFor="tweet"></label>
             <input id="domoTweet" type="text" name="tweet" placholder="Domo Message" />
 
             <input type="hidden" name="_csrf" value={props.csrf} />
-            <input className="makeDomoSubmit" type="submit" value="Make Domo" />
+            <input className="makeDomoSubmit" type="submit" value="Tweet" />
         </form>
     );
 };
@@ -36,7 +36,7 @@ const DomoList = function (props) {
     if (props.domos.length === 0) {
         return (
             <div className="domoList">
-                <h3 className="emptyDomo">No Domos yet</h3>
+                <h3 className="emptyDomo">No Tweets Exist</h3>
             </div>
         )
     }
@@ -44,7 +44,7 @@ const DomoList = function (props) {
     const domoNodes = props.domos.map(function (domo) {
         return (
             <div key={domo._id} className="domo">
-                <h3 className="domoTweet">{domo._id}: {domo.tweet}</h3>
+                <h3 className="domoTweet">{domo.owner}: {domo.tweet}</h3>
             </div>
         );
     });
