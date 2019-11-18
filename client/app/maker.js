@@ -44,9 +44,7 @@ const DomoList = function (props) {
     const domoNodes = props.domos.map(function (domo) {
         return (
             <div key={domo._id} className="domo">
-                <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
-                <h3 className="domoTweet">Tweet: {domo.tweet}</h3>
-                <input className="domoDelete" type="submit" value="Delete Domo" />
+                <h3 className="domoTweet">{domo._id}: {domo.tweet}</h3>
             </div>
         );
     });
