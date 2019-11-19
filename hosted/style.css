@@ -252,7 +252,7 @@ nav {
     background-color: #60989C;
 }
 
-#user, #pass, #pass2 {
+#user, #pass, #pass2, #oldpass {
     text-align: center;
     font-size: 1.1em;
     width: 180px;
