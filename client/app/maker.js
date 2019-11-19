@@ -126,7 +126,7 @@ const PassWindow = (props) => {
             <label htmlFor="oldpass"></label>
             <input id="oldpass" type="password" name="oldpass" placeholder="old password" />
             <label htmlFor="pass"></label>
-            <input id="pass" type="password" name="pass" placeholder="password" />
+            <input id="pass" type="password" name="pass" placeholder="password in maker" />
             <label htmlFor="pass2"></label>
             <input id="pass2" type="password" name="pass2" placeholder="retype password" />
             <input className="newPass" type="submit" value="Change Pass" />

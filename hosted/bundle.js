@@ -81,8 +81,6 @@ $(document).ready(function () {
 var changePassword = function changePassword(e) {
   e.preventDefault();
 
-  $("#domoMessage").animate({ width: 'hide' }, 350);
-
   if ($("#oldpass").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
       handleError("all fields required");
       return false;
