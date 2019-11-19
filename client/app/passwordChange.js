@@ -25,7 +25,7 @@ const PassWindow = (props) => {
             method="POST"
             className="mainForm">
             <label htmlFor="pass">Old Pass: </label>
-            <input id="oldpass" type="password" name="oldpass" placeholder="password" />
+            <input id="oldpass" type="password" name="oldpass" placeholder="drunk" />
             <label htmlFor="pass">New Pass: </label>
             <input id="pass" type="password" name="pass" placeholder="password" />
             <label htmlFor="pass2">New Pass: </label>
