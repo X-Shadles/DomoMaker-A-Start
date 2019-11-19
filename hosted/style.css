@@ -42,6 +42,9 @@ nav {
     background-color: #66bdff;
 }
 
+#back{
+    padding: 5px;
+}
 
 /* grid Alignment Webpage*/
 #left-grids{ grid-area: leftmost; }
@@ -92,7 +95,7 @@ nav {
 /* Set Icons in a good place */
 #apps {
     margin-top: 20px; 
-    margin-right: 100px;
+    margin-right: 140px;
     width: 180px;
     display: flex;
 
