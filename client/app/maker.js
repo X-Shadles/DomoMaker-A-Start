@@ -44,7 +44,7 @@ const DomoList = function (props) {
     const domoNodes = props.domos.map(function (domo) {
         return (
             <div className="domo">
-                <h3 className="domoTweet">{domo}: {domo.tweet}</h3>
+                <h3 className="domoTweet">{domo.name}: {domo.tweet}</h3>
             </div>
         );
     });

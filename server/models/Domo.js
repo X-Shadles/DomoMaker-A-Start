@@ -5,7 +5,7 @@ const _ = require('underscore');
 let DomoModel = {};
 
 const convertId = mongoose.Types.ObjectId;
-const setName = (name) => _.escape(name).trim();
+const setName = (tweeter) => _.escape(tweeter).trim();
 
 const DomoSchema = new mongoose.Schema({
   tweet: {
@@ -13,6 +13,11 @@ const DomoSchema = new mongoose.Schema({
     required: true,
     trim: true,
     set: setName,
+  },
+  username: {
+    type: String,
+    required: true,
+    trim: true,
   },
   owner: {
     type: mongoose.Schema.ObjectId,
@@ -22,10 +27,6 @@ const DomoSchema = new mongoose.Schema({
   createdData: {
     type: Date,
     default: Date.now,
-  },
-  username: {
-    type: String,
-    required: true,
   },
 });
 
