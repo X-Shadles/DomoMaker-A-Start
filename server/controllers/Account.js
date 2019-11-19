@@ -76,8 +76,6 @@ const signup = (request, response) => {
 };
 
 
-
-
 const changePass = (request, response) => {
   const req = request;
   const res = response;
@@ -111,20 +109,20 @@ const changePass = (request, response) => {
               console.log(err2);
               return res.status(400).json({ error: 'error = broken' });
             }
-  
-            let updatedDoc = doc;
+
+            const updatedDoc = doc;
             updatedDoc.salt = salt;
             updatedDoc.password = hash;
-  
+
             const savePromise = updatedDoc.save();
-  
+
             savePromise.then(() => res.json({ redirect: '/maker' }));
-  
+
             savePromise.catch((err3) => {
               console.log(err3);
               return res.status(400).json({ error: 'error = double broken' });
             });
-  
+
             return savePromise;
           }));
     }
@@ -141,7 +139,7 @@ const getToken = (request, response) => {
   };
 
   res.json(csrfJSON);
-}
+};
 
 module.exports.loginPage = loginPage;
 module.exports.login = login;
