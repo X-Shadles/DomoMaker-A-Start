@@ -1,7 +1,8 @@
-$("#passChange").on("submit", (e) => {
+
+const changePassword = (e) => {
     e.preventDefault();
 
-    if ($('#user').val() == '' || $('#pass').val() == '' || $('#pass2').val() == '') {
+    if ($('#oldpass').val() == '' || $('#pass').val() == '' || $('#pass2').val() == '') {
         handleError("all fields required");
         return false;
     }
@@ -14,20 +15,22 @@ $("#passChange").on("submit", (e) => {
     sendAjax('POST', $('#passChange').attr('action'), $('#passChange').serialize(), redirect);
 
     return false;
-});
+};
 
 const PassWindow = (props) => {
     return (
         <form id="passForm" name="passForm"
-            onSubmit={handleLogin}
+            onSubmit={changePassword}
             action="/changePass"
             method="POST"
             className="mainForm">
-            <label htmlFor="pass">Password: </label>
+            <label htmlFor="pass">Old Password: </label>
+            <input id="oldpass" type="password" name="oldpass" placeholder="password" />
+            <label htmlFor="pass">New Password: </label>
             <input id="pass" type="password" name="pass" placeholder="password" />
-            <label htmlFor="pass2">Password: </label>
+            <label htmlFor="pass2">New Password: </label>
             <input id="pass2" type="password" name="pass2" placeholder="retype password" />
-            <input className="formSubmit" type="submit" value="Change Pass" />
+            <input className="newPass" type="submit" value="Change Pass" />
         </form>
     );
 };
