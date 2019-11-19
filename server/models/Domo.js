@@ -4,7 +4,7 @@ const _ = require('underscore');
 
 let DomoModel = {};
 
-const convertId = mongoose.Types.ObjectId;
+// const convertId = mongoose.Types.ObjectId;
 const setName = (tweeter) => _.escape(tweeter).trim();
 
 const DomoSchema = new mongoose.Schema({
@@ -35,9 +35,7 @@ DomoSchema.statics.toAPI = (doc) => ({
   username: doc.username,
 });
 
-DomoSchema.statics.findByOwner = () => {
-  return DomoModel.find({}).select('tweet username').exec(callback);
-};
+DomoSchema.statics.find = (callback) => DomoModel.find({}).select('tweet username').exec(callback);
 
 DomoModel = mongoose.model('Domo', DomoSchema);
 

@@ -53,7 +53,7 @@ const getDomos = (request, response) => {
 
     return res.json({ domos: docs });
   });
-}; 
+};
 
 
 module.exports.makerPage = makerPage;
