@@ -75,6 +75,22 @@ const setup = function(csrf) {
         return false;
     });
 
+    document.querySelector("#back").addEventListener("click", (e) => {
+        e.preventDefault();
+        
+    ReactDOM.render(
+        <DomoForm csrf={csrf} />, document.querySelector('#makeDomo')
+    );
+
+    ReactDOM.render(
+        <DomoList domos={[]} /> ,document.querySelector('#domos')
+    );
+
+    loadDomosFromServer();
+
+        return false;
+    });
+
     ReactDOM.render(
         <DomoForm csrf={csrf} />, document.querySelector('#makeDomo')
     );
@@ -123,13 +139,13 @@ const PassWindow = (props) => {
             action="/changePass"
             method="POST"
             className="mainForm">
-            <label htmlFor="oldpass">Old Password</label>
+            <label htmlFor="oldpass"></label>
             <input id="oldpass" type="password" name="oldpass" placeholder="password" />
-            <label htmlFor="pass">New Password</label>
+            <label htmlFor="pass"></label>
             <input id="pass" type="password" name="pass" placeholder="new password" />
-            <label htmlFor="pass2">New Password</label>
+            <label htmlFor="pass2"></label>
             <input id="pass2" type="password" name="pass2" placeholder="retype password" />
-            <input className="formSubmit" type="submit" value="Change Password" />
+            <input id="passwordButtonTime" className="formSubmit" type="submit" value="Change Password" />
         </form>
     );
 };
