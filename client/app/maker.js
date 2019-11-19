@@ -75,22 +75,6 @@ const setup = function(csrf) {
         return false;
     });
 
-    document.querySelector("#back").addEventListener("click", (e) => {
-        e.preventDefault();
-        
-    ReactDOM.render(
-        <DomoForm csrf={csrf} />, document.querySelector('#makeDomo')
-    );
-
-    ReactDOM.render(
-        <DomoList domos={[]} /> ,document.querySelector('#domos')
-    );
-
-    loadDomosFromServer();
-
-        return false;
-    });
-
     ReactDOM.render(
         <DomoForm csrf={csrf} />, document.querySelector('#makeDomo')
     );
