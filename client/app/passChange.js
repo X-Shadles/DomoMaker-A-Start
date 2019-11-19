@@ -1,4 +1,4 @@
-const handleSignup = (e) => {
+$("#passChange").on("submit", (e) => {
     e.preventDefault();
 
     if ($('#user').val() == '' || $('#pass').val() == '' || $('#pass2').val() == '') {
@@ -11,10 +11,10 @@ const handleSignup = (e) => {
         return false;
     }
 
-    sendAjax('POST', $('#signupForm').attr('action'), $('#signupForm').serialize(), redirect);
+    sendAjax('POST', $('#passChange').attr('action'), $('#passChange').serialize(), redirect);
 
     return false;
-}
+});
 
 const PassWindow = (props) => {
     return (

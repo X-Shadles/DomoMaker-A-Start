@@ -75,6 +75,45 @@ const signup = (request, response) => {
   });
 };
 
+
+
+
+const changePass = (request, response) => {
+  const req = request;
+  const res = response;
+
+  req.body.username = `${req.body.username}`;
+  req.body.pass = `${req.body.pass}`;
+  req.body.pass2 = `${req.body.pass2}`;
+
+  if (!req.body.username || !req.body.pass || !req.body.pass2) {
+    return res.status(400).json({ error: 'RAWR! all fields required' });
+  }
+
+  if (req.body.pass !== req.body.pass2) {
+    return res.status(400).json({ error: 'RAWR! that\'s not the same password' });
+  }
+
+  
+  Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
+    Account.AccountModel.updateOne({
+      username: req.session.account.username,
+    }, {
+      salt,
+      password: hash,
+    }, (error) => {
+      if (error) {
+        return res.status(400).json({
+          error,
+        });
+      }
+      return hash;
+    });
+  });
+};
+
+
+
 const getToken = (request, response) => {
   const req = request;
   const res = response;
@@ -91,3 +130,4 @@ module.exports.login = login;
 module.exports.logout = logout;
 module.exports.signup = signup;
 module.exports.getToken = getToken;
+module.exports.changePass = changePass;
