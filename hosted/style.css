@@ -141,7 +141,7 @@ nav {
 
 #left-grids{
     margin-top: 6%;
-    width: 160px;
+    width: 25vw;
     background-color: #C7D66D;
     height: 70%;
     justify-content: start;
@@ -176,6 +176,7 @@ nav {
     margin-left: 30vw;
     padding-left: 10px;
     margin-top: 70px;
+    margin-right: 20vw;
 }
 
 .domoForm label {
@@ -319,8 +320,9 @@ nav {
     min-width: 400px;
     border: 2px solid #A8CCC9;
     border-radius: 4px;
-    margin: 0 auto;
+    margin-left: auto;
     margin-top: 100px;
+    margin-right: 10vw;
 }
 
 .domo {
