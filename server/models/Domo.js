@@ -35,11 +35,8 @@ DomoSchema.statics.toAPI = (doc) => ({
   username: doc.username,
 });
 
-DomoSchema.statics.findByOwner = (ownerId, callback) => {
-  const search = {
-    owner: convertId(ownerId),
-  };
-  return DomoModel.find(search).select('tweet username').exec(callback);
+DomoSchema.statics.findByOwner = () => {
+  return DomoModel.find({}).select('tweet username').exec(callback);
 };
 
 DomoModel = mongoose.model('Domo', DomoSchema);
