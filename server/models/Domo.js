@@ -34,7 +34,7 @@ DomoSchema.statics.toAPI = (doc) => ({
   tweet: doc.tweet,
   username: doc.username,
 });
- 
+
 DomoSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
