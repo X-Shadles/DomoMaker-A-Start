@@ -65,6 +65,7 @@ const loadDomosFromServer = () => {
 };
 
 const setup = function(csrf) {
+
     document.querySelector("#passChange").addEventListener("click", (e) => {
         e.preventDefault();
         ReactDOM.render(
@@ -73,6 +74,7 @@ const setup = function(csrf) {
         );
         return false;
     });
+
     ReactDOM.render(
         <DomoForm csrf={csrf} />, document.querySelector('#makeDomo')
     );
@@ -109,7 +111,7 @@ const changePassword = (e) => {
         return false;
     }
 
-    sendAjax('POST', $('#passForme').attr('action'), $('#passForm').serialize(), redirect);
+    sendAjax('POST', $('#passForm').attr('action'), $('#passForm').serialize(), redirect);
 
     return false;
 };

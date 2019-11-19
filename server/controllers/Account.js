@@ -98,7 +98,7 @@ const changePass = (request, response) => {
     (err1, account) => {
       if (err1 || !account) {
         return res.status(401).json({ error: 'RAWR! that\'s not right user or pass' });
-      }
+      } 
 
       return Account.AccountModel.generateHash(
         req.body.pass,

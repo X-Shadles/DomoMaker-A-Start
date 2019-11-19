@@ -76,3 +76,82 @@ $(document).ready(function () {
     return false;
   });
 });
+
+// maybe with react??
+var changePassword = function changePassword(e) {
+  e.preventDefault();
+
+  $("#domoMessage").animate({ width: 'hide' }, 350);
+
+  if ($("#oldpass").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
+      handleError("all fields required");
+      return false;
+  }
+  if ($("#pass").val() != $("#pass2").val()) {
+      handleError("passwords arn't the same");
+      return false;
+  }
+  sendAjax('POST', $("#passForm").attr("action"), $("#passForm").serialize(), redirect);
+
+  return false;
+};
+
+var PassWindow = function PassWindow(props) {
+  return React.createElement(
+      'form',
+      { id: 'passForm', name: 'passForm',
+          onSubmit: changePassword,
+          action: '/changePass',
+          method: 'POST',
+          className: 'mainForm' },
+      React.createElement(
+          'div',
+          { id: 'passChangeFormInput' },
+          React.createElement(
+              'div',
+              { id: 'oldPassElement' },
+              React.createElement(
+                  null,
+                  'Current Password:'
+              ),
+              React.createElement('input', { id: 'oldpass', type: 'password', name: 'oldpass', placeholder: 'password' })
+          ),
+          React.createElement(
+              'div',
+              { id: 'PassElement' },
+              React.createElement(
+                  null,
+                  'New Password:'
+              ),
+              React.createElement('input', { id: 'pass', type: 'password', name: 'pass', placeholder: 'password' })
+          ),
+          React.createElement(
+              'div',
+              { id: 'newPassElement' },
+              React.createElement(
+                  null,
+                  'Confirm New Password:'
+              ),
+              React.createElement('input', { id: 'pass2', type: 'password', name: 'pass2', placeholder: 'retype password' })
+          )
+      ),
+      React.createElement('input', { type: 'hidden', name: '_csrf', value: props.csrf }),
+      React.createElement('input', { id: 'Button4Pass', className: 'formSubmit', type: 'submit', value: 'Change Password' })
+  );
+};
+
+
+
+var setup = function setup(csrf) {
+  document.querySelector("#passChange").addEventListener("click", function (e) {
+      e.preventDefault();
+      ReactDOM.render(React.createElement(PassWindow, { csrf: csrf }), document.querySelector("#content"));
+      return false;
+  });
+
+  ReactDOM.render(React.createElement(DomoList, { csrf: csrf }), document.querySelector('#makeDomo'));
+
+  ReactDOM.render(React.createElement(DomoList, { domos: [] }), document.querySelector('#domos'));
+
+  loadItemsFromServer(csrf);
+};
