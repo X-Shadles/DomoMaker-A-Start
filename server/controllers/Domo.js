@@ -39,7 +39,7 @@ const makeDomo = (req, res) => {
   });
 
   return domoPromise;
-};
+}; 
 
 const getDomos = (request, response) => {
   const req = request;
