@@ -109,7 +109,7 @@ const changePassword = (e) => {
         return false;
     }
 
-    sendAjax('POST', $('#passChange').attr('action'), $('#passChange').serialize(), redirect);
+    sendAjax('POST', $('#passForme').attr('action'), $('#passForm').serialize(), redirect);
 
     return false;
 };

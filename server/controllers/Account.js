@@ -82,11 +82,11 @@ const changePass = (request, response) => {
   const req = request;
   const res = response;
 
-  req.body.username = `${req.body.username}`;
+  req.body.oldpass = `${req.body.oldpass}`;
   req.body.pass = `${req.body.pass}`;
   req.body.pass2 = `${req.body.pass2}`;
 
-  if (!req.body.username || !req.body.pass || !req.body.pass2) {
+  if (!req.body.oldpass || !req.body.pass || !req.body.pass2) {
     return res.status(400).json({ error: 'RAWR! all fields required' });
   }
 
@@ -94,24 +94,42 @@ const changePass = (request, response) => {
     return res.status(400).json({ error: 'RAWR! that\'s not the same password' });
   }
 
-  
-  Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
-    Account.AccountModel.updateOne({
-      username: req.session.account.username,
-    }, {
-      salt,
-      password: hash,
-    }, (error) => {
-      if (error) {
-        return res.status(400).json({
-          error,
-        });
+  return Account.AccountModel.authenticate(
+    req.session.account.username,
+    req.body.oldpass,
+    (err1, account) => {
+      if (err1 || !account) {
+        return res.status(401).json({ error: 'RAWR! that\'s not right user or pass' });
       }
-      return hash;
-    });
-  });
-};
 
+      return Account.AccountModel.generateHash(
+        req.body.pass,
+        (salt, hash) => Account.AccountModel.findByUsername(
+          req.session.account.username,
+          (err2, doc) => {
+            if (err2) {
+              console.log(err2);
+              return res.status(400).json({ error: 'error = broken' });
+            }
+  
+            let updatedDoc = doc;
+            updatedDoc.salt = salt;
+            updatedDoc.password = hash;
+  
+            const savePromise = updatedDoc.save();
+  
+            savePromise.then(() => res.json({ redirect: '/maker' }));
+  
+            savePromise.catch((err3) => {
+              console.log(err3);
+              return res.status(400).json({ error: 'error = double broken' });
+            });
+  
+            return savePromise;
+          }));
+    }
+  );
+};
 
 
 const getToken = (request, response) => {
