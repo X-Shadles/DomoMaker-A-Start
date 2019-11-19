@@ -114,7 +114,7 @@ var PassWindow = function PassWindow(props) {
                   null,
                   'Current Password:'
               ),
-              React.createElement('input', { id: 'oldpass', type: 'password', name: 'oldpass', placeholder: 'password' })
+              React.createElement('input', { id: 'oldpass', type: 'password', name: 'oldpass', placeholder: 'old password' })
           ),
           React.createElement(
               'div',
