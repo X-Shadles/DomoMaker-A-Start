@@ -92,7 +92,6 @@ nav {
 /* Set Icons in a good place */
 #apps {
     margin-top: 20px; 
-    margin-right: 20px;
     margin-right: 100px;
     width: 180px;
     display: flex;
@@ -123,11 +122,11 @@ nav {
 /* Doesn't move my menu icon, looks as if it comes from the header itself */
 .Pages {
     z-index: 2;
-    position: absolute;
     padding-top: 8px;
+    height: 55px;
     display: none;
     width: 350px;
-    box-shadow: -17px 8px 8px rgba(0, 0, 0, .15);
+    box-shadow: rgba(0, 0, 0, 0.15) -17px 8px 8px;
 
 }
 
