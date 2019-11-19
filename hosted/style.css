@@ -149,17 +149,8 @@ nav {
     position: fixed;
 }
 
-#right-grids{
-    margin-top: 6%;
-    width: 160px;
-    background-color: #C7D66D;
-    height: 70%;
-    justify-content: end;
-    z-index: -1;
-    float: right;
-
-}
 #right-grids h2, #left-grids h2{
+    padding-top: 20%;
     text-align: center;
 }
 
@@ -173,10 +164,10 @@ nav {
     width: 39vw;
     padding-top: 10px;
     background-color: #A8CCC9;
-    margin-left: 30vw;
     padding-left: 10px;
     margin-top: 70px;
     margin-right: 20vw;
+    margin-left: auto;
 }
 
 .domoForm label {
@@ -322,7 +313,7 @@ nav {
     border-radius: 4px;
     margin-left: auto;
     margin-top: 100px;
-    margin-right: 10vw;
+    margin-right: 20vw;
 }
 
 .domo {
