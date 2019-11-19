@@ -41,10 +41,10 @@ const DomoList = function (props) {
         )
     }
 
-    const domoNodes = props.domos.map(function (domo) {
+    const domoNodes = props.domos.map(function (domo, username) {
         return (
             <div className="domo">
-                <h3 className="domoTweet">{domo.name}: {domo.tweet}</h3>
+                <h3 className="domoTweet">{username} {domo.tweet}</h3>
             </div>
         );
     });
@@ -59,7 +59,7 @@ const DomoList = function (props) {
 const loadDomosFromServer = () => {
     sendAjax('GET', '/getDomos', null, (data) => {
         ReactDOM.render(
-            <DomoList domos={data.domos}/>, document.querySelector('#domos')
+            <DomoList domos={data.domos} username={data.username}/>, document.querySelector('#domos')
         );
     });
 };
