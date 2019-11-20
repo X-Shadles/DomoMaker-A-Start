@@ -97,7 +97,7 @@ $(document).ready(function() {
 });
 
 
-
+ 
 const changePassword = (e) => {
     e.preventDefault();
 
@@ -129,6 +129,8 @@ const PassWindow = (props) => {
             <input id="pass" type="password" name="pass" placeholder="new password" />
             <label htmlFor="pass2"></label>
             <input id="pass2" type="password" name="pass2" placeholder="retype password" />
+            
+            <input type="hidden" name="_csrf" value={props.csrf} />
             <input id="passwordButtonTime" className="formSubmit" type="submit" value="Change Password" />
         </form>
     );
