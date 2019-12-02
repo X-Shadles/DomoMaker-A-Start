@@ -2,7 +2,7 @@
 
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
-  $("#domoMessage").animate({ width: 'toggle' }, 350);
+  $("#twitMessage").animate({ width: 'toggle' }, 350);
 };
 
 var sendAjax = function sendAjax(action, data) {
@@ -13,7 +13,7 @@ var sendAjax = function sendAjax(action, data) {
     data: data,
     dataType: "json",
     success: function success(result, status, xhr) {
-      $("#domoMessage").animate({ width: 'hide' }, 350);
+      $("#twitMessage").animate({ width: 'hide' }, 350);
 
       window.location = result.redirect;
     },
@@ -29,7 +29,7 @@ $(document).ready(function () {
   $("#signupForm").on("submit", function (e) {
     e.preventDefault();
 
-    $("#domoMessage").animate({ width: 'hide' }, 350);
+    $("#twitMessage").animate({ width: 'hide' }, 350);
 
     if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
       handleError("RAWR! All fields are required");
@@ -49,7 +49,7 @@ $(document).ready(function () {
   $("#loginForm").on("submit", function (e) {
     e.preventDefault();
 
-    $("#domoMessage").animate({ width: 'hide' }, 350);
+    $("#twitMessage").animate({ width: 'hide' }, 350);
 
     if ($("#user").val() == '' || $("#pass").val() == '') {
       handleError("RAWR! Username or password is empty");
@@ -61,17 +61,17 @@ $(document).ready(function () {
     return false;
   });
 
-  $("#domoForm").on("submit", function (e) {
+  $("#twitForm").on("submit", function (e) {
     e.preventDefault();
 
-    $("#domoMessage").animate({ width: 'hide' }, 350);
+    $("#twitMessage").animate({ width: 'hide' }, 350);
 
-    if ($("#domoName").val() == '' || $("#domoAge").val() == '' || $("#domoFood").val() == '') {
+    if ($("#twitName").val() == '' || $("#twitAge").val() == '' || $("#twitFood").val() == '') {
       handleError("RAWR! All fields are required");
       return false;
     }
 
-    sendAjax($("#domoForm").attr("action"), $("#domoForm").serialize());
+    sendAjax($("#twitForm").attr("action"), $("#twitForm").serialize());
 
     return false;
   });

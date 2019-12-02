@@ -1,65 +1,65 @@
-const handleDomo = (e) => {
+const handleTwit = (e) => {
     e.preventDefault();
 
-    $('#domoMessage').animate({ width: 'hide' }, 350);
+    $('#twitMessage').animate({ width: 'hide' }, 350);
 
-    if ($('#domoTweet').val() == '') {
+    if ($('#twitTweet').val() == '') {
         handleError('come on theres only one requirement');
         return false;
     }
 
-    sendAjax('POST', $('#domoForm').attr('action'), $('#domoForm').serialize(), function () {
-        loadDomosFromServer();
+    sendAjax('POST', $('#twitForm').attr('action'), $('#twitForm').serialize(), function () {
+        loadTwitsFromServer();
     });
 
     return false;
 }
 
-const DomoForm = (props) => {
+const TwitForm = (props) => {
     return (
-        <form id="domoForm"
-            onSubmit={handleDomo}
-            name="domoForm"
+        <form id="twitForm"
+            onSubmit={handleTwit}
+            name="twitForm"
             action="/maker"
             method="POST"
-            className="domoForm">
+            className="twitForm">
             <label htmlFor="tweet"></label>
-            <textarea rows="4" cols="50" type="text" id="domoTweet" name="tweet"></textarea>
+            <textarea rows="4" cols="50" type="text" id="twitTweet" name="tweet"></textarea>
 
             <input type="hidden" name="_csrf" value={props.csrf} />
-            <input className="makeDomoSubmit" type="submit" value="Tweet" />
+            <input className="makeTwitSubmit" type="submit" value="Tweet" />
         </form>
     );
 };
 
-const DomoList = function (props) {
-    if (props.domos.length === 0) {
+const TwitList = function (props) {
+    if (props.twits.length === 0) {
         return (
-            <div className="domoList">
-                <h3 className="emptyDomo">No Tweets Exist</h3>
+            <div className="twitList">
+                <h3 className="emptyTwit">No Tweets Exist</h3>
             </div>
         )
     }
 
-    const domoNodes = props.domos.map(function (domo) {
+    const twitNodes = props.twits.map(function (twit) {
         return (
-            <div className="domo">
-                <h3 className="domoTweet">{domo.username}: {domo.tweet}</h3>
+            <div className="twit">
+                <h3 className="twitTweet">{twit.username}: {twit.tweet}</h3>
             </div>
         );
     });
 
     return (
-        <div className="domoList">
-            {domoNodes}
+        <div className="twitList">
+            {twitNodes}
         </div>
     );
 };
 
-const loadDomosFromServer = () => {
-    sendAjax('GET', '/getDomos', null, (data) => {
+const loadTwitsFromServer = () => {
+    sendAjax('GET', '/getTwits', null, (data) => {
         ReactDOM.render(
-            <DomoList domos={data.domos} username={data.username}/>, document.querySelector('#domos')
+            <TwitList twits={data.twits} username={data.username}/>, document.querySelector('#twits')
         );
     });
 };
@@ -76,14 +76,14 @@ const setup = function(csrf) {
     });
 
     ReactDOM.render(
-        <DomoForm csrf={csrf} />, document.querySelector('#makeDomo')
+        <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
     );
 
     ReactDOM.render(
-        <DomoList domos={[]} /> ,document.querySelector('#domos')
+        <TwitList twits={[]} /> ,document.querySelector('#twits')
     );
 
-    loadDomosFromServer();
+    loadTwitsFromServer();
 }
 
 const getToken = () => {
@@ -129,6 +129,8 @@ const PassWindow = (props) => {
             <input id="pass" type="password" name="pass" placeholder="new password" />
             <label htmlFor="pass2"></label>
             <input id="pass2" type="password" name="pass2" placeholder="retype password" />
+            
+            <input type="hidden" name="_csrf" value={props.csrf} />
             <input id="passwordButtonTime" className="formSubmit" type="submit" value="Change Password" />
         </form>
     );
