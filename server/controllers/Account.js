@@ -75,7 +75,7 @@ const signup = (request, response) => {
   });
 };
 
- 
+
 const changePass = (request, response) => {
   const req = request;
   const res = response;
