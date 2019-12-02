@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const _ = require('underscore');
 
-let DomoModel = {};
+let TwitModel = {};
 
 const convertId = mongoose.Types.ObjectId;
 const setName = (tweeter) => _.escape(tweeter).trim();
 
-const DomoSchema = new mongoose.Schema({
+const TwitSchema = new mongoose.Schema({
   tweet: {
     type: String,
     required: true,
@@ -30,21 +30,21 @@ const DomoSchema = new mongoose.Schema({
   },
 });
 
-DomoSchema.statics.toAPI = (doc) => ({
+TwitSchema.statics.toAPI = (doc) => ({
   tweet: doc.tweet,
   username: doc.username,
 });
 
-DomoSchema.statics.findByOwner = (ownerId, callback) => {
+TwitSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
-  return DomoModel.find(search).select('tweet username').exec(callback);
+  return TwitModel.find(search).select('tweet username').exec(callback);
 };
 
-DomoModel = mongoose.model('Domo', DomoSchema);
+TwitModel = mongoose.model('Twit', TwitSchema);
 
-module.exports.DomoModel = DomoModel;
-module.exports.DomoSchema = DomoSchema;
+module.exports.TwitModel = TwitModel;
+module.exports.TwitSchema = TwitSchema;
 
-// domoModel.find({})
+// twitModel.find({})

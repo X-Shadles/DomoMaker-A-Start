@@ -1,35 +1,35 @@
 const models = require('../models');
-const Domo = models.Domo;
+const Twit = models.Twit;
 
 const makerPage = (req, res) => {
-  Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+  Twit.TwitModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       console.log(err);
       return res.status(400).json({ error: 'an error occured' });
     }
 
-    return res.render('app', { csrfToken: req.csrfToken(), domos: docs });
+    return res.render('app', { csrfToken: req.csrfToken(), twits: docs });
   });
 };
 
-const makeDomo = (req, res) => {
+const makeTwit = (req, res) => {
   if (!req.body.tweet) {
     return res.status(400).json({ error: 'You must enter some text' });
   }
 
-  const domoData = {
+  const twitData = {
     tweet: req.body.tweet,
     username: req.session.account.username,
     owner: req.session.account._id,
   };
 
-  const newDomo = new Domo.DomoModel(domoData);
+  const newTwit = new Twit.TwitModel(twitData);
 
-  const domoPromise = newDomo.save();
+  const twitPromise = newTwit.save();
 
-  domoPromise.then(() => res.json({ redirect: '/maker' }));
+  twitPromise.then(() => res.json({ redirect: '/maker' }));
 
-  domoPromise.catch((err) => {
+  twitPromise.catch((err) => {
     console.log(err);
     if (err.code === 11000) {
       return res.status(400).json({ error: 'Tweet already exists' });
@@ -38,24 +38,24 @@ const makeDomo = (req, res) => {
     return res.status(400).json({ error: 'RAWR! Dont do that!' });
   });
 
-  return domoPromise;
+  return twitPromise;
 };
 
-const getDomos = (request, response) => {
+const getTwits = (request, response) => {
   const req = request;
   const res = response;
 
-  return Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+  return Twit.TwitModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       console.log(err);
       return res.status(400).json({ error: 'an error occurred' });
     }
 
-    return res.json({ domos: docs });
+    return res.json({ twits: docs });
   });
 };
 
 
 module.exports.makerPage = makerPage;
-module.exports.make = makeDomo;
-module.exports.getDomos = getDomos;
+module.exports.make = makeTwit;
+module.exports.getTwits = getTwits;

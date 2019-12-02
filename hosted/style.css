@@ -156,11 +156,11 @@ nav {
     text-align: center;
 }
 
-#domoTweet{
+#twitTweet{
     width: 97%;
     height: 60%;
 }
-.domoForm {   
+.twitForm {   
     border: 2px solid #60989C;
     height: 115px;
     width: 39vw;
@@ -172,7 +172,7 @@ nav {
     margin-left: auto;
 }
 
-.domoForm label {
+.twitForm label {
     display: inline-block;
     margin-right: 10px;
     margin-top: 10px;
@@ -183,11 +183,11 @@ nav {
     color: white;
 }
 
-.domoForm input[type=text] {
+.twitForm input[type=text] {
     float:left;
 }
 
-.makeDomoSubmit {
+.makeTwitSubmit {
     transition: background-color 0.4s ease;
     display: inline;
     margin-right: 10px;
@@ -200,11 +200,11 @@ nav {
     text-decoration: none;
 }
 
-.makeDomoSubmit:link, .makeDomoSubmit:visited, .makeDomoSubmit:hover, .makeDomoSubmit:active {
+.makeTwitSubmit:link, .makeTwitSubmit:visited, .makeTwitSubmit:hover, .makeTwitSubmit:active {
     color: white;
 }
 
-.makeDomoSubmit:hover {
+.makeTwitSubmit:hover {
     transition: background-color 0.4s ease;
     background-color: #60989C;
 }
@@ -271,7 +271,7 @@ nav {
     box-shadow: 0px 0px 1px 1px #A8CCC9;
 }
 
-#domoMessage {
+#twitMessage {
     display:none;
     top: 250px;
     width: 250px;
@@ -282,7 +282,7 @@ nav {
     overflow: hidden;
 }
 
-#domoMessage h3 {
+#twitMessage h3 {
     width: 200px;
     position: absolute;
     top: 0px;
@@ -302,7 +302,7 @@ nav {
     font-style: italic;
 }
 
-#domo {
+#twit {
     z-index: 225;
     margin-top: -20px;
     margin-left: 135px;
@@ -313,7 +313,7 @@ nav {
     transform: rotate(330deg);
 }
 
-#domos {
+#twits {
     width: 40%;
     min-width: 400px;
     border: 2px solid #A8CCC9;
@@ -323,7 +323,7 @@ nav {
     margin-right: 20vw;
 }
 
-.domo {
+.twit {
     width: 95%;
     margin: 0 auto;
     margin-top: 2px;
@@ -336,14 +336,14 @@ nav {
     overflow: hidden;
 }
 
-.domo:hover {
+.twit:hover {
     transition: border-color 0.2s ease-out;
     border-color: rgba(255,255,255, 0.8);
     transition: background-color 2.6s ease-out;
     background-color: #75B9BE;
 }
 
-img.domoFace {
+img.twitFace {
     margin-left: 25px;
     margin-right: 10px;
     height: 50px;
@@ -353,7 +353,7 @@ img.domoFace {
     float:left;
 }
 
-h3.emptyDomo {
+h3.emptyTwit {
     width: 400px;
     font-size: 1.5em;
     margin: 0 auto;
@@ -361,7 +361,7 @@ h3.emptyDomo {
     margin-top: 18px;
 }
 
-h3.domoName {
+h3.twitName {
     float:left;
     width: 200px;
     font-weight: bold;
@@ -369,7 +369,7 @@ h3.domoName {
     font-size: 1.5em;
 }
 
-h3.domoAge {
+h3.twitAge {
     float:right;
     text-align: left;
     width: 100px;
@@ -377,7 +377,7 @@ h3.domoAge {
     padding-right: 40px;
     font-size: 1.5em;
 }
-h3.domoFood {
+h3.twitFood {
     text-align: left;
     width: 540px;
     font-weight: bold;
@@ -385,10 +385,10 @@ h3.domoFood {
     font-size: 1.5em;
 }
 
-.domo:first-child {
+.twit:first-child {
     margin-top: 10px;
 }
 
-.domo:last-child {
+.twit:last-child {
     margin-bottom:10px;
 }
