@@ -12,6 +12,17 @@ const makerPage = (req, res) => {
   });
 };
 
+const publicPage = (req, res) => {
+  Twit.TwitModel.find((err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'an error occured' });
+    }
+
+    return res.render('app', { csrfToken: req.csrfToken(), twits: docs });
+  });
+};
+
 const makeTwit = (req, res) => {
   if (!req.body.tweet) {
     return res.status(400).json({ error: 'You must enter some text' });
@@ -57,5 +68,6 @@ const getTwits = (request, response) => {
 
 
 module.exports.makerPage = makerPage;
+module.exports.publicPage = publicPage;
 module.exports.make = makeTwit;
 module.exports.getTwits = getTwits;
