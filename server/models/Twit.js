@@ -39,12 +39,15 @@ TwitSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
-  return TwitModel.find(search).select('tweet username').exec(callback);
+  return TwitModel.find({}).select('tweet username').exec(callback);
 };
 
 TwitModel = mongoose.model('Twit', TwitSchema);
 
+//TwitAll = TwitModel.static.find({}).select('tweet username').exec(callback);
+
 module.exports.TwitModel = TwitModel;
 module.exports.TwitSchema = TwitSchema;
+//module.exports.TwitAll = TwitAll;
 
 // twitModel.find({})
