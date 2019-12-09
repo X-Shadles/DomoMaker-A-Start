@@ -44,7 +44,10 @@ const TwitList = function (props) {
     const twitNodes = props.twits.map(function (twit) {
         return (
             <div className="twit">
-                <h3 className="twitTweet">{twit.username}: <br> {twit.tweet}</h3>
+                <div className="twitTweet">
+                <h3>{twit.username}:</h3>
+                <h3>{twit.tweet}</h3> 
+                </div>
             </div>
         );
     });
