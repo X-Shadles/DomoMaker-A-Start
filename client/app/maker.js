@@ -82,7 +82,7 @@ const setup = function(csrf) {
         );
         return false;
     });
-    
+
     ReactDOM.render(
         <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
     );
