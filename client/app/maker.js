@@ -58,11 +58,7 @@ const TwitList = function (props) {
 
 const AdHere = function(){
     return(
-        <div className="reactAd" style="
-        background-color: rgb(109, 214, 109);
-        height: 20%;
-        width: 100%;
-        ">
+        <div class="reactAd" >
         <h2>React Ad Here</h2>
         </div>
     );
