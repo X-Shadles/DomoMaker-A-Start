@@ -39,6 +39,10 @@ TwitSchema.statics.findAll = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
+  if (!search){
+
+  }
+  
   return TwitModel.find({}).select('tweet username').exec(callback);
 };
 
