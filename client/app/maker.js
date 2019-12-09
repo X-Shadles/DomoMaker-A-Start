@@ -82,18 +82,7 @@ const setup = function(csrf) {
         );
         return false;
     });
-
-    document.querySelector("#publicTweets").addEventListener("click", (e) => {
-        e.preventDefault();
-    ReactDOM.render(
-        <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
-    );
-    ReactDOM.render(
-        <TwitList twits={[]} /> ,document.querySelector('#twits')
-    );
-        return false;
-    });
-
+    
     ReactDOM.render(
         <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
     );
