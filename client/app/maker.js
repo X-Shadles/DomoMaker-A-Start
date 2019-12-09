@@ -83,6 +83,14 @@ const loadTwitsFromServer = () => {
     });
 };
 
+const loadPersonalFromServer = () => {
+    sendAjax('GET', '/getHome', null, (data) => {
+        ReactDOM.render(
+            <TwitList twits={data.twits} username={data.username}/>, document.querySelector('#twits')
+        );
+    });
+};
+
 const tweetPublic = (csrf) => {
     
     ReactDOM.render(
@@ -98,6 +106,21 @@ const tweetPublic = (csrf) => {
     loadTwitsFromServer();
 }
 
+const tweetPrivate = (csrf) => {
+    
+    ReactDOM.render(
+        <ContentSetup/> ,document.querySelector('#content')
+    );
+    ReactDOM.render(
+        <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
+    );
+    ReactDOM.render(
+        <TwitList twits={[]} /> ,document.querySelector('#twits')
+    );
+
+    loadPersonalFromServer();
+}
+
 const createPassChange = (csrf) => {
     ReactDOM.render(
         <PassWindow csrf={csrf} />,
@@ -108,6 +131,7 @@ const createPassChange = (csrf) => {
 const setup = function(csrf) {
     const passChange = document.querySelector('#passChange');
     const twitHome = document.querySelector('#twitHome');
+    const twitPersonal = document.querySelector('#twitPersonal');
 
     passChange.addEventListener("click", (e) => {
         e.preventDefault();
@@ -118,6 +142,13 @@ const setup = function(csrf) {
     twitHome.addEventListener("click", (e) => {
         e.preventDefault();
         tweetPublic(csrf);
+        return false;
+    });
+
+    
+    twitPersonal.addEventListener("click", (e) => {
+        e.preventDefault();
+        tweetPrivate(csrf);
         return false;
     });
 

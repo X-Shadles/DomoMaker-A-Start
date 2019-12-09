@@ -12,6 +12,17 @@ const publicPage = (req, res) => {
   });
 };
 
+const homePage = (req, res) => {
+  Twit.TwitModel.findByOwner(req.session.account._id, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'an error occured' });
+    }
+
+    return res.render('app', { csrfToken: req.csrfToken(), twits: docs });
+  });
+};
+
 const makeTwit = (req, res) => {
   if (!req.body.tweet) {
     return res.status(400).json({ error: 'You must enter some text' });
@@ -55,7 +66,23 @@ const getTwits = (request, response) => {
   });
 };
 
+const getHome = (request, response) => {
+  const req = request;
+  const res = response;
+
+  return Twit.TwitModel.findByOwner(req.session.account._id, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'an error occurred' });
+    }
+
+    return res.json({ twits: docs });
+  });
+};
+
 
 module.exports.publicPage = publicPage;
+module.exports.homePage = homePage;
 module.exports.make = makeTwit;
 module.exports.getTwits = getTwits;
+module.exports.getHome = getHome;
