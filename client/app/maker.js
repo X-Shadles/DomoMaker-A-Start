@@ -72,7 +72,7 @@ const loadTwitsFromServer = () => {
     });
 };
 
-const tweetPublic = () => {
+const tweetPublic = (csrf) => {
     ReactDOM.render(
         <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
     );
@@ -94,11 +94,11 @@ const setup = function(csrf) {
 
     document.querySelector("#twitHome").addEventListener("click", (e) => {
         e.preventDefault();
-        tweetPublic();
+        tweetPublic(csrf);
         return false;
     });
 
-    tweetPublic();
+    tweetPublic(csrf);
 
     ReactDOM.render(
         <AdHere/> ,document.querySelector('#left-grids')
