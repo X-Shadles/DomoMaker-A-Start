@@ -56,6 +56,13 @@ const TwitList = function (props) {
     );
 };
 
+const AdHere = function(){
+    return(
+        <div className="addy">
+        </div>
+    );
+}
+
 const loadTwitsFromServer = () => {
     sendAjax('GET', '/getTwits', null, (data) => {
         ReactDOM.render(
