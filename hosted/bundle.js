@@ -32,12 +32,12 @@ $(document).ready(function () {
     $("#twitMessage").animate({ width: 'hide' }, 350);
 
     if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
-      handleError("RAWR! All fields are required");
+      handleError("Tweet, All fields are required");
       return false;
     }
 
     if ($("#pass").val() !== $("#pass2").val()) {
-      handleError("RAWR! Passwords do not match");
+      handleError("Tweet, Passwords do not match");
       return false;
     }
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
     $("#twitMessage").animate({ width: 'hide' }, 350);
 
     if ($("#user").val() == '' || $("#pass").val() == '') {
-      handleError("RAWR! Username or password is empty");
+      handleError("Tweet, Username or password is empty");
       return false;
     }
 
@@ -67,7 +67,7 @@ $(document).ready(function () {
     $("#twitMessage").animate({ width: 'hide' }, 350);
 
     if ($("#twitName").val() == '' || $("#twitAge").val() == '' || $("#twitFood").val() == '') {
-      handleError("RAWR! All fields are required");
+      handleError("Tweet, All fields are required");
       return false;
     }
 

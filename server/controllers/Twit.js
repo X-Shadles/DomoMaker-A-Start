@@ -35,7 +35,7 @@ const makeTwit = (req, res) => {
       return res.status(400).json({ error: 'Tweet already exists' });
     }
 
-    return res.status(400).json({ error: 'RAWR! Dont do that!' });
+    return res.status(400).json({ error: 'Tweet, Dont do that!' });
   });
 
   return twitPromise;

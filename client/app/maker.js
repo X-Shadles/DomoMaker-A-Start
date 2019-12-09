@@ -81,18 +81,24 @@ const tweetPublic = (csrf) => {
     );
 }
 
-const setup = function(csrf) {
+const createPassChange = (csrf) => {
+    ReactDOM.render(
+        <PassWindow csrf={csrf} />,
+    document.querySelector('#content')
+    );
+};
 
-    document.querySelector("#passChange").addEventListener("click", (e) => {
+const setup = function(csrf) {
+    const passChange = document.querySelector('#passChange');
+    const twitHome = document.querySelector('#twitHome');
+
+    passChange.addEventListener("click", (e) => {
         e.preventDefault();
-        ReactDOM.render(
-            <PassWindow csrf={csrf} />,
-        document.querySelector('#content')
-        );
+        createPassChange(csrf);
         return false;
     });
 
-    document.querySelector("#twitHome").addEventListener("click", (e) => {
+    twitHome.addEventListener("click", (e) => {
         e.preventDefault();
         tweetPublic(csrf);
         return false;

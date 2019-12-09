@@ -4,7 +4,7 @@ const handleLogin = (e) => {
     $('#twitMessage').animate({ width: 'hide' }, 350);
 
     if ($('#user').val() == '' || $('#pass').val() == '') {
-        handleError("RAWR! missing username or password");
+        handleError("Tweet, missing username or password");
         return false;
     }
 
@@ -21,12 +21,12 @@ const handleSignup = (e) => {
     $('#twitMessage').animate({ width: 'hide' }, 350);
 
     if ($('#user').val() == '' || $('#pass').val() == '' || $('#pass2').val() == '') {
-        handleError("RAWR! all fields required");
+        handleError("Tweet, all fields required");
         return false;
     }
 
     if ($('#pass').val() !== $('#pass2').val()) {
-        handleError("RAWR! passwords arn't the same");
+        handleError("Tweet, passwords arn't the same");
         return false;
     }
 

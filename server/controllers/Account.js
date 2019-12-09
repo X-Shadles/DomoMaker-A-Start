@@ -19,12 +19,12 @@ const login = (request, response) => {
   const password = `${req.body.pass}`;
 
   if (!username || !password) {
-    return res.status(400).json({ error: 'RAWR! all fields are required' });
+    return res.status(400).json({ error: 'Tweet, all fields are required' });
   }
 
   return Account.AccountModel.authenticate(username, password, (err, account) => {
     if (err || !account) {
-      return res.status(401).json({ error: 'RAWR! wrong username or password' });
+      return res.status(401).json({ error: 'Tweet, wrong username or password' });
     }
     req.session.account = Account.AccountModel.toAPI(account);
 
@@ -40,11 +40,11 @@ const signup = (request, response) => {
   req.body.pass2 = `${req.body.pass2}`;
 
   if (!req.body.username || !req.body.pass || !req.body.pass2) {
-    return res.status(400).json({ error: 'RAWR! all fields required' });
+    return res.status(400).json({ error: 'Tweet, all fields required' });
   }
 
   if (req.body.pass !== req.body.pass2) {
-    return res.status(400).json({ error: 'RAWR! that\'s not the same password' });
+    return res.status(400).json({ error: 'Tweet, that\'s not the same password' });
   }
 
   return Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
@@ -85,11 +85,11 @@ const changePass = (request, response) => {
   req.body.pass2 = `${req.body.pass2}`;
 
   if (!req.body.oldpass || !req.body.pass || !req.body.pass2) {
-    return res.status(400).json({ error: 'RAWR! all fields required' });
+    return res.status(400).json({ error: 'Tweet, all fields required' });
   }
 
   if (req.body.pass !== req.body.pass2) {
-    return res.status(400).json({ error: 'RAWR! that\'s not the same password' });
+    return res.status(400).json({ error: 'Tweet, that\'s not the same password' });
   }
 
   return Account.AccountModel.authenticate(
@@ -97,7 +97,7 @@ const changePass = (request, response) => {
     req.body.oldpass,
     (err1, account) => {
       if (err1 || !account) {
-        return res.status(401).json({ error: 'RAWR! that\'s not right user or pass' });
+        return res.status(401).json({ error: 'Tweet, that\'s not right user or pass' });
       }
 
       return Account.AccountModel.generateHash(
