@@ -49,9 +49,12 @@ const TwitList = function (props) {
         );
     });
 
+    const testNodes = twitNodes;
+    const reverseNodes = testNodes.reverse();
+
     return (
         <div className="twitList">
-            {twitNodes}
+            {reverseNodes}
         </div>
     );
 };
@@ -125,8 +128,8 @@ const setup = function(csrf) {
     twitHome.addEventListener("click", (e) => {
         e.preventDefault();
 
-        loadTwitsFromServer();
         tweetPublic(csrf);
+        loadTwitsFromServer();
         return false;
     });
 
@@ -140,6 +143,7 @@ const setup = function(csrf) {
     });
 
     tweetPublic(csrf);
+    loadTwitsFromServer();
 
     ReactDOM.render(
         <AdHere/> ,document.querySelector('#left-grids')
