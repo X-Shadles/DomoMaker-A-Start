@@ -1,17 +1,6 @@
 const models = require('../models');
 const Twit = models.Twit;
 
-const makerPage = (req, res) => {
-  Twit.TwitModel.findByOwner(req.session.account._id, (err, docs) => {
-    if (err) {
-      console.log(err);
-      return res.status(400).json({ error: 'an error occured' });
-    }
-
-    return res.render('app', { csrfToken: req.csrfToken(), twits: docs });
-  });
-};
-
 const publicPage = (req, res) => {
   Twit.TwitModel.findAll(req.session.account._id, (err, docs) => {
     if (err) {
@@ -56,7 +45,7 @@ const getTwits = (request, response) => {
   const req = request;
   const res = response;
 
-  return Twit.TwitModel.findByOwner(req.session.account._id, (err, docs) => {
+  return Twit.TwitModel.findAll(req.session.account._id, (err, docs) => {
     if (err) {
       console.log(err);
       return res.status(400).json({ error: 'an error occurred' });
@@ -67,7 +56,6 @@ const getTwits = (request, response) => {
 };
 
 
-module.exports.makerPage = makerPage;
 module.exports.publicPage = publicPage;
 module.exports.make = makeTwit;
 module.exports.getTwits = getTwits;
