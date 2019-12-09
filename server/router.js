@@ -9,8 +9,8 @@ const router = (app) => {
   app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
   app.get('/logout', mid.requiresLogin, controllers.Account.logout);
   app.post('/changePass', mid.requiresSecure, mid.requiresLogin, controllers.Account.changePass);
-  app.get('/maker', mid.requiresLogin, controllers.Twit.makerPage);
-  // app.get('/maker', mid.requiresLogin, controllers.Twit.publicPage);
+  //app.get('/maker', mid.requiresLogin, controllers.Twit.makerPage);
+  app.get('/maker', mid.requiresLogin, controllers.Twit.publicPage);
   app.post('/maker', mid.requiresLogin, controllers.Twit.make);
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 };
