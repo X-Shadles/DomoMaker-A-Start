@@ -102,23 +102,6 @@ const tweetPublic = (csrf) => {
     ReactDOM.render(
         <TwitList twits={[]} /> ,document.querySelector('#twits')
     );
-
-    loadTwitsFromServer();
-}
-
-const tweetPrivate = (csrf) => {
-    
-    ReactDOM.render(
-        <ContentSetup/> ,document.querySelector('#content')
-    );
-    ReactDOM.render(
-        <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
-    );
-    ReactDOM.render(
-        <TwitList twits={[]} /> ,document.querySelector('#twits')
-    );
-
-    loadPersonalFromServer();
 }
 
 const createPassChange = (csrf) => {
@@ -141,6 +124,8 @@ const setup = function(csrf) {
 
     twitHome.addEventListener("click", (e) => {
         e.preventDefault();
+
+        loadTwitsFromServer();
         tweetPublic(csrf);
         return false;
     });
@@ -148,7 +133,9 @@ const setup = function(csrf) {
     
     twitPersonal.addEventListener("click", (e) => {
         e.preventDefault();
-        tweetPrivate(csrf);
+
+        tweetPublic(csrf);
+        loadPersonalFromServer();
         return false;
     });
 
