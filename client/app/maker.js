@@ -66,7 +66,7 @@ const AdHere = function(){
 
 const ContentSetup = () => {
     return (
-  <section id="content">
+  <section id="AllContent">
   <section id="makeTwit">
   </section>
   <section id="twits">
@@ -86,7 +86,7 @@ const loadTwitsFromServer = () => {
 const tweetPublic = (csrf) => {
     
     ReactDOM.render(
-        <ContentSetup/> ,document.querySelector('#allContent')
+        <ContentSetup/> ,document.querySelector('#content')
     );
     ReactDOM.render(
         <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
