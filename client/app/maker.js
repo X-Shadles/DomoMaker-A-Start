@@ -58,7 +58,7 @@ const TwitList = function (props) {
 
 const AdHere = function(){
     return(
-        <div class="reactAd" >
+        <div className="reactAd" >
         <h2>React Ad Here</h2>
         </div>
     );

@@ -152,12 +152,12 @@ nav {
 }
 
 
-#reactAd h2{
+#left-grids div h2{
     padding-top: 20%;
     text-align: center;
 }
 
-#reactAd{
+#left-grids div{
     background-color: rgb(109, 214, 109);
     height: 20%;
     width: 100%;
