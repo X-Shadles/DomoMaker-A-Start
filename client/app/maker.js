@@ -49,8 +49,9 @@ const TwitList = function (props) {
         );
     });
 
-    const testNodes = twitNodes;
-    const reverseNodes = testNodes.reverse();
+    // reverse can mess with both consts, so a protect const keeps the nodes safe.
+    const protectNodes = twitNodes;
+    const reverseNodes = protectNodes.reverse();
 
     return (
         <div className="twitList">
