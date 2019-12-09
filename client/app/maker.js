@@ -58,7 +58,8 @@ const TwitList = function (props) {
 
 const AdHere = function(){
     return(
-        <div className="addy">
+        <div className="reactAd">
+        <h2>React Ad Here</h2>
         </div>
     );
 }
@@ -88,6 +89,10 @@ const setup = function(csrf) {
 
     ReactDOM.render(
         <TwitList twits={[]} /> ,document.querySelector('#twits')
+    );
+
+    ReactDOM.render(
+        <AdHere/> ,document.querySelector('#left-grids')
     );
 
     loadTwitsFromServer();

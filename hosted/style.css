@@ -151,9 +151,15 @@ nav {
     position: fixed;
 }
 
-#right-grids h2, #left-grids h2{
+
+#reactAd h2{
     padding-top: 20%;
     text-align: center;
+}
+
+#reactAd{
+    background-color: rgb(109, 214, 109);
+    padding: 10px;
 }
 
 #twitTweet{
