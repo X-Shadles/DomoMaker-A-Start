@@ -64,6 +64,17 @@ const AdHere = function(){
     );
 }
 
+const ContentSetup = () => {
+    return (
+  <section id="content">
+  <section id="makeTwit">
+  </section>
+  <section id="twits">
+  </section>
+  </section>
+    );
+};
+
 const loadTwitsFromServer = () => {
     sendAjax('GET', '/getTwits', null, (data) => {
         ReactDOM.render(
@@ -73,6 +84,10 @@ const loadTwitsFromServer = () => {
 };
 
 const tweetPublic = (csrf) => {
+    
+    ReactDOM.render(
+        <ContentSetup/> ,document.querySelector('#allContent')
+    );
     ReactDOM.render(
         <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
     );
