@@ -72,6 +72,15 @@ const loadTwitsFromServer = () => {
     });
 };
 
+const tweetPublic = () => {
+    ReactDOM.render(
+        <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
+    );
+    ReactDOM.render(
+        <TwitList twits={[]} /> ,document.querySelector('#twits')
+    );
+}
+
 const setup = function(csrf) {
 
     document.querySelector("#passChange").addEventListener("click", (e) => {
@@ -83,13 +92,13 @@ const setup = function(csrf) {
         return false;
     });
 
-    ReactDOM.render(
-        <TwitForm csrf={csrf} />, document.querySelector('#makeTwit')
-    );
+    document.querySelector("#twitHome").addEventListener("click", (e) => {
+        e.preventDefault();
+        tweetPublic();
+        return false;
+    });
 
-    ReactDOM.render(
-        <TwitList twits={[]} /> ,document.querySelector('#twits')
-    );
+    tweetPublic();
 
     ReactDOM.render(
         <AdHere/> ,document.querySelector('#left-grids')
