@@ -94,6 +94,8 @@ const tweetPublic = (csrf) => {
     ReactDOM.render(
         <TwitList twits={[]} /> ,document.querySelector('#twits')
     );
+
+    loadTwitsFromServer();
 }
 
 const createPassChange = (csrf) => {
@@ -124,8 +126,6 @@ const setup = function(csrf) {
     ReactDOM.render(
         <AdHere/> ,document.querySelector('#left-grids')
     );
-
-    loadTwitsFromServer();
 }
 
 const getToken = () => {
