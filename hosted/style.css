@@ -130,6 +130,7 @@ nav {
     display: none;
     width: 350px;
     box-shadow: rgba(0, 0, 0, 0.15) -17px 8px 8px;
+    margin-left: -275;
 
 }
 
