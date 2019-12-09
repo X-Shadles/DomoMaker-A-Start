@@ -13,7 +13,7 @@ const makerPage = (req, res) => {
 };
 
 const publicPage = (req, res) => {
-  Twit.TwitModel.find((err, docs) => {
+  Twit.TwitModel.findAll((err, docs) => {
     if (err) {
       console.log(err);
       return res.status(400).json({ error: 'an error occured' });
