@@ -36,10 +36,10 @@ function formatDate(date) {
   const monthIndex = date.getMonth();
   const year = date.getFullYear();
   let hours = date.getHours();
-  const min = date.getMinutes();
+  let min = date.getMinutes();
 
-  if(min == 0 || min == "0"){
-    min = "00"
+  if (min === 0 || min === '0') {
+    min = '00';
   }
   if (hours > 12) {
     hours -= 12;
