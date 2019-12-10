@@ -48,7 +48,7 @@ const TwitList = function (props) {
                 <div className="twitTweet">
                 <h3 className="twitName">{twit.username}:</h3>
                 <h3 className="twitText">{twit.tweet}</h3> 
-                <h3 className="twitTest">{fixedDate}</h3> 
+                <h3 className="twitTest">{twit.createdData}</h3> 
                 </div>
             </div>
         );
