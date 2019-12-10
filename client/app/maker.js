@@ -15,6 +15,7 @@ const handleTwit = (e) => {
     return false;
 }
 
+//the form that accepts new tweets
 const TwitForm = (props) => {
     return (
         <form id="twitForm"
@@ -32,6 +33,7 @@ const TwitForm = (props) => {
     );
 };
 
+//list all the tweets and return their values
 const TwitList = function (props) {
     if (props.twits.length === 0) {
         return (
@@ -66,7 +68,7 @@ const TwitList = function (props) {
 };
 
 
-
+//ad
 const AdHere = function(){
     return(
         <div className="reactAd" >
@@ -75,6 +77,7 @@ const AdHere = function(){
     );
 }
 
+//re-creates the content area to overwite passchange
 const ContentSetup = () => {
     return (
   <section id="AllContent">
@@ -86,6 +89,7 @@ const ContentSetup = () => {
     );
 };
 
+//loading all the tweets
 const loadTwitsFromServer = () => {
     sendAjax('GET', '/getTwits', null, (data) => {
         ReactDOM.render(
@@ -94,6 +98,7 @@ const loadTwitsFromServer = () => {
     });
 };
 
+//loadign personal tweets
 const loadPersonalFromServer = () => {
     sendAjax('GET', '/getHome', null, (data) => {
         ReactDOM.render(
@@ -102,6 +107,7 @@ const loadPersonalFromServer = () => {
     });
 };
 
+//prints out the form of the tweets without any values
 const tweetPublic = (csrf) => {
     
     ReactDOM.render(
@@ -115,6 +121,7 @@ const tweetPublic = (csrf) => {
     );
 }
 
+//pritns out the passchange window
 const createPassChange = (csrf) => {
     ReactDOM.render(
         <PassWindow csrf={csrf} />,
@@ -137,7 +144,7 @@ const setup = function(csrf) {
         e.preventDefault();
 
         tweetPublic(csrf);
-        loadTwitsFromServer();
+        loadTwitsFromServer(); //adds the vales to the tweet public
         return false;
     });
 
@@ -146,7 +153,7 @@ const setup = function(csrf) {
         e.preventDefault();
 
         tweetPublic(csrf);
-        loadPersonalFromServer();
+        loadPersonalFromServer();//adds the vales to the tweet public
         return false;
     });
 
@@ -154,7 +161,7 @@ const setup = function(csrf) {
     loadTwitsFromServer();
 
     ReactDOM.render(
-        <AdHere/> ,document.querySelector('#left-grids')
+        <AdHere/> ,document.querySelector('#left-grids') //ads
     );
 }
 
@@ -169,7 +176,7 @@ $(document).ready(function() {
 });
 
 
- 
+ //looks at change pass fields
 const changePassword = (e) => {
     e.preventDefault();
 
@@ -188,6 +195,7 @@ const changePassword = (e) => {
     return false;
 };
 
+//form for change password
 const PassWindow = (props) => {
     return (
         <form id="passForm" name="passForm"

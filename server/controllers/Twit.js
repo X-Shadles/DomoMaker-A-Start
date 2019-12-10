@@ -1,6 +1,7 @@
 const models = require('../models');
 const Twit = models.Twit;
 
+//page to display every tweet
 const publicPage = (req, res) => {
   Twit.TwitModel.findAll(req.session.account._id, (err, docs) => {
     if (err) {
@@ -12,6 +13,7 @@ const publicPage = (req, res) => {
   });
 };
 
+//page to show personal tweets
 const homePage = (req, res) => {
   Twit.TwitModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
@@ -23,7 +25,8 @@ const homePage = (req, res) => {
   });
 };
 
-function formatDate(date) {
+//format the time to make it look good
+function formatTime(date) {
   const monthNames = [
     'January', 'February', 'March',
     'April', 'May', 'June', 'July',
@@ -51,11 +54,12 @@ function formatDate(date) {
   return `${monthNames[monthIndex]}/${day}/${year} ${clock} UTC`;
 }
 
+//make a tweet and accept data
 const makeTwit = (req, res) => {
   if (!req.body.tweet) {
     return res.status(400).json({ error: 'You must enter some text' });
   }
-  const currentDate = formatDate(new Date());
+  const currentDate = formatTime(new Date());
   const twitData = {
     tweet: req.body.tweet,
     username: req.session.account.username,
@@ -81,6 +85,7 @@ const makeTwit = (req, res) => {
   return twitPromise;
 };
 
+//get all the tweets
 const getTwits = (request, response) => {
   const req = request;
   const res = response;
@@ -95,6 +100,7 @@ const getTwits = (request, response) => {
   });
 };
 
+//just get the personal tweets (needs to be seprate to be called from diff buttons)
 const getHome = (request, response) => {
   const req = request;
   const res = response;
