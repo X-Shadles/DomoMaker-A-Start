@@ -45,8 +45,8 @@ const TwitList = function (props) {
         return (
             <div className="twit">
                 <div className="twitTweet">
-                <h3>{twit.username}:</h3>
-                <h3>{twit.tweet}</h3> 
+                <h3 className="twitName">{twit.username}:</h3>
+                <h3 className="twitText">{twit.tweet}</h3> 
                 </div>
             </div>
         );
