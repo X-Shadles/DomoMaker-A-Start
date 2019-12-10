@@ -45,7 +45,7 @@ function formatDate(date) {
     clock = `${hours}:${min} AM`;
   }
 
-  return `${monthNames[monthIndex]}/${day}/${year} ${clock}`;
+  return `${monthNames[monthIndex]}/${day}/${year} ${clock} UTC`;
 }
 
 const makeTwit = (req, res) => {
