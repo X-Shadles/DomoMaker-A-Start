@@ -24,28 +24,28 @@ const homePage = (req, res) => {
 };
 
 function formatDate(date) {
-  var monthNames = [
-    "January", "February", "March",
-    "April", "May", "June", "July",
-    "August", "September", "October",
-    "November", "December"
+  const monthNames = [
+    'January', 'February', 'March',
+    'April', 'May', 'June', 'July',
+    'August', 'September', 'October',
+    'November', 'December',
   ];
 
-  var clock;
-  var day = date.getDate();
-  var monthIndex = date.getMonth();
-  var year = date.getFullYear();
-  var hours = date.getHours();
-  var min = date.getMinutes();
+  let clock;
+  const day = date.getDate();
+  const monthIndex = date.getMonth();
+  const year = date.getFullYear();
+  let hours = date.getHours();
+  const min = date.getMinutes();
 
-  if(hours > 12){
-      hours -= 12;
-      clock = hours + ":" + min + " PM"
+  if (hours > 12) {
+    hours -= 12;
+    clock = `${hours}:${min} PM`;
   } else {
-      clock = hours + ":" + min + " AM"
+    clock = `${hours}:${min} AM`;
   }
 
-  return monthNames[monthIndex] + '/' + day + '/' + year + ' ' + clock ;
+  return `${monthNames[monthIndex]}/${day}/${year} ${clock}`;
 }
 
 const makeTwit = (req, res) => {
