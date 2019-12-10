@@ -24,7 +24,7 @@ const TwitSchema = new mongoose.Schema({
     required: true,
     ref: 'Account',
   },
-  createdData: {
+  createdDate: {
     type: Date,
     default: Date.now,
   },
@@ -33,7 +33,7 @@ const TwitSchema = new mongoose.Schema({
 TwitSchema.statics.toAPI = (doc) => ({
   tweet: doc.tweet,
   username: doc.username,
-  createdData: doc.createdData,
+  createdDate: doc.createdDate,
 });
 
 TwitSchema.statics.findAll = (ownerId, callback) => {
@@ -44,7 +44,7 @@ TwitSchema.statics.findAll = (ownerId, callback) => {
     return null;
   } // blank for now
 
-  return TwitModel.find({}).select('tweet username createdData').exec(callback);
+  return TwitModel.find({}).select('tweet username createdDate').exec(callback);
 };
 
 TwitSchema.statics.findByOwner = (ownerId, callback) => {
@@ -52,7 +52,7 @@ TwitSchema.statics.findByOwner = (ownerId, callback) => {
     owner: convertId(ownerId),
   };
 
-  return TwitModel.find(search).select('tweet username createdData').exec(callback);
+  return TwitModel.find(search).select('tweet username createdDate').exec(callback);
 };
 
 TwitModel = mongoose.model('Twit', TwitSchema);
