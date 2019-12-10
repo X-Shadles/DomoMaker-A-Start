@@ -44,7 +44,7 @@ TwitSchema.statics.findAll = (ownerId, callback) => {
     return null;
   } // blank for now
 
-  return TwitModel.find({}).select('tweet username createdDate').exec(callback);
+  return TwitModel.find({}).select('tweet username createdData').exec(callback);
 };
 
 TwitSchema.statics.findByOwner = (ownerId, callback) => {
@@ -52,7 +52,7 @@ TwitSchema.statics.findByOwner = (ownerId, callback) => {
     owner: convertId(ownerId),
   };
 
-  return TwitModel.find(search).select('tweet username createdDate').exec(callback);
+  return TwitModel.find(search).select('tweet username createdData').exec(callback);
 };
 
 TwitModel = mongoose.model('Twit', TwitSchema);
