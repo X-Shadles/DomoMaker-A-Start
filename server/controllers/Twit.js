@@ -38,6 +38,9 @@ function formatDate(date) {
   let hours = date.getHours();
   const min = date.getMinutes();
 
+  if(min == 0 || min == "0"){
+    min = "00"
+  }
   if (hours > 12) {
     hours -= 12;
     clock = `${hours}:${min} PM`;
