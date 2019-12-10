@@ -42,7 +42,7 @@ const TwitList = function (props) {
     }
 
     const twitNodes = props.twits.map(function (twit) {
-        const fixedDate = formatDate(Date());
+        const fixedDate = formatDate(new Date());
         return (
             <div className="twit">
                 <div className="twitTweet">
