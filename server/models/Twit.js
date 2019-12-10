@@ -33,7 +33,7 @@ const TwitSchema = new mongoose.Schema({
 TwitSchema.statics.toAPI = (doc) => ({
   tweet: doc.tweet,
   username: doc.username,
-  createdDate: doc.createdData,
+  createdData: doc.createdData,
 });
 
 TwitSchema.statics.findAll = (ownerId, callback) => {
