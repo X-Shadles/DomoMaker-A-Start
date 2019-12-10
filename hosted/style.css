@@ -370,21 +370,10 @@ h3.emptyTwit {
 }
 
 h3.twitName {
-    float:left;
-    width: 200px;
-    font-weight: bold;
-    padding-left: 65px;
-    font-size: 1.5em;
     margin-bottom: 0;
 }
 
 h3.twitText {
-    float:right;
-    text-align: left;
-    width: 100px;
-    font-weight: normal;
-    padding-right: 40px;
-    font-size: 1.5em;
     margin-top: 0;
 }
 h3.twitTest {
