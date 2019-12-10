@@ -42,13 +42,11 @@ const TwitList = function (props) {
     }
 
     const twitNodes = props.twits.map(function (twit) {
-        const fixedDate = Date();
         return (
             <div className="twit">
                 <div className="twitTweet">
                 <h3 className="twitName">{twit.username}:</h3>
                 <h3 className="twitText">{twit.tweet}</h3> 
-                <h3 className="twitText">{fixedDate}</h3> 
                 <h3 className="twitTest">{twit.createdDate}</h3> 
                 </div>
             </div>
@@ -66,30 +64,7 @@ const TwitList = function (props) {
     );
 };
 
-function formatDate(date) {
-    var monthNames = [
-      "January", "February", "March",
-      "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
-    ];
-  
-    var clock;
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
-    var hours = date.getHours();
-    var min = date.getMinutes();
 
-    if(hours > 12){
-        hours -= 12;
-        clock = hours + ":" + min + " PM"
-    } else {
-        clock = hours + ":" + min + " AM"
-    }
-  
-    return monthNames[monthIndex] + '/' + day + '/' + year + ' ' + clock ;
-  }
 
 const AdHere = function(){
     return(

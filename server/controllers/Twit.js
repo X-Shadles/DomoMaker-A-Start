@@ -23,16 +23,41 @@ const homePage = (req, res) => {
   });
 };
 
+function formatDate(date) {
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+
+  var clock;
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+  var hours = date.getHours();
+  var min = date.getMinutes();
+
+  if(hours > 12){
+      hours -= 12;
+      clock = hours + ":" + min + " PM"
+  } else {
+      clock = hours + ":" + min + " AM"
+  }
+
+  return monthNames[monthIndex] + '/' + day + '/' + year + ' ' + clock ;
+}
+
 const makeTwit = (req, res) => {
   if (!req.body.tweet) {
     return res.status(400).json({ error: 'You must enter some text' });
   }
-
+  const currentDate = formatDate(new Date());
   const twitData = {
     tweet: req.body.tweet,
     username: req.session.account.username,
     owner: req.session.account._id,
-    createdDate: Date(),
+    createdDate: currentDate,
   };
 
   const newTwit = new Twit.TwitModel(twitData);
