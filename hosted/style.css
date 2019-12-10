@@ -165,7 +165,7 @@ nav {
 }
 
 #twitTweet{
-    width: 97%;
+    width: 95%;
     height: 60%;
 }
 .twitForm {   
@@ -375,17 +375,19 @@ h3.twitName {
     font-weight: bold;
     padding-left: 65px;
     font-size: 1.5em;
+    margin-bottom: 0;
 }
 
 h3.twitAge {
     float:right;
     text-align: left;
     width: 100px;
-    font-weight: bold;
+    font-weight: normal;
     padding-right: 40px;
     font-size: 1.5em;
+    margin-top: 0;
 }
-h3.twitFood {
+h3.twitTest {
     text-align: left;
     width: 540px;
     font-weight: bold;
