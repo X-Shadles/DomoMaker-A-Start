@@ -32,7 +32,7 @@ const makeTwit = (req, res) => {
     tweet: req.body.tweet,
     username: req.session.account.username,
     owner: req.session.account._id,
-    createdDate: Date(),
+    createdDate: new Date(),
   };
 
   const newTwit = new Twit.TwitModel(twitData);
