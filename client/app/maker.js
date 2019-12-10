@@ -42,13 +42,13 @@ const TwitList = function (props) {
     }
 
     const twitNodes = props.twits.map(function (twit) {
-        const fixedDate = formatDate(new Date());
+        const fixedDate = new Date();
         return (
             <div className="twit">
                 <div className="twitTweet">
                 <h3 className="twitName">{twit.username}:</h3>
                 <h3 className="twitText">{twit.tweet}</h3> 
-                <h3 className="twitTest">{twit.createdDate}</h3> 
+                <h3 className="twitTest">{twit.createdDate} {fixedDate}</h3> 
                 </div>
             </div>
         );
