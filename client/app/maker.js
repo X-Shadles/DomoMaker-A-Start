@@ -31,7 +31,30 @@ const TwitForm = (props) => {
         </form>
     );
 };
-
+function formatDate(date) {
+    const monthNames = [
+      'January', 'February', 'March',
+      'April', 'May', 'June', 'July',
+      'August', 'September', 'October',
+      'November', 'December',
+    ];
+  
+    let clock;
+    const day = date.getDate();
+    const monthIndex = date.getMonth();
+    const year = date.getFullYear();
+    let hours = date.getHours();
+    const min = date.getMinutes();
+  
+    if (hours > 12) {
+      hours -= 12;
+      clock = `${hours}:${min} PM`;
+    } else {
+      clock = `${hours}:${min} AM`;
+    }
+  
+    return `${monthNames[monthIndex]}/${day}/${year} ${clock}`;
+  }
 const TwitList = function (props) {
     if (props.twits.length === 0) {
         return (
@@ -42,6 +65,8 @@ const TwitList = function (props) {
     }
 
     const twitNodes = props.twits.map(function (twit) {
+        const dateTest = new Date().getHours();
+
         return (
             <div className="twit">
                 <div className="twitTweet">

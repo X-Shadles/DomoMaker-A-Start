@@ -86,6 +86,14 @@ const createSignupWindow = (csrf) => {
     );
 };
 
+const AdHere = function(){
+    return(
+        <div className="reactAd" >
+        <h2>React Ad Here</h2>
+        </div>
+    );
+}
+
 const setup = (csrf) => {
     const loginButton = document.querySelector('#loginButton');
     const signupButton = document.querySelector('#signupButton');
@@ -103,6 +111,11 @@ const setup = (csrf) => {
     });
 
     createLoginWindow(csrf);
+
+    
+    ReactDOM.render(
+        <AdHere/> ,document.querySelector('#left-grids')
+    );
 };
 
 const getToken = () => {

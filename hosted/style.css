@@ -118,7 +118,7 @@ nav {
 }
 
 /* When hovering the menu drops down */
-.Sand-Witch:hover .Pages {
+.Sand-Witch:hover .Pages, .Sand-Witch:hover .Pages2 {
     display: block;
 }
 
@@ -133,9 +133,18 @@ nav {
     margin-left: -275;
 
 }
+.Pages2 {
+    z-index: 2;
+    padding-top: 8px;
+    height: 55px;
+    display: none;
+    width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.15) -17px 8px 8px;
+
+}
 
 /* Hides Url underline, adjusts text */
-.Pages a {
+.Pages a,.Pages2 a {
     text-decoration: none;
     padding: 15px;
     display: block;
